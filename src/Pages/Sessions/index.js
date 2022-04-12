@@ -11,10 +11,10 @@ function Sessions(props) {
     <>
       <Dashboard />
       <Container>
-        <Button className="m-2" variant="primary">
+        <Button className="my-3 btn-lg" variant="info">
           Sessions{" "}
         </Button>
-        <Card style={{ width: "80rem" }} className="m-5">
+        <Card style={{ width: "80rem" }} className="">
           {show ? <Sessionslist handleShow={handleShow} /> : <SessionsAdd />}
         </Card>
       </Container>

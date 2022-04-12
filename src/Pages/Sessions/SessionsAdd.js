@@ -5,11 +5,13 @@ function SessionsAdd(props) {
     <>
       <div class="row" className="d-flex ">
         <div class="col-md-6">
-          <h5 className="m-5">selected Sujects:</h5>
+          <h5 className="ml-5 mt-5">selected Sujects:</h5>
           <div>
-            <Button>Add Chapter</Button>
+            <Button className="ml-5 btn-md w-25" variant="info">
+              Add Chapter
+            </Button>
           </div>
-          <div className="w-25 m-3">
+          <div className="w-25 ml-5 mt-3">
             <Form.Select aria-label="Default select example">
               <option>select chapter</option>
               <option value="1">One</option>
@@ -18,9 +20,11 @@ function SessionsAdd(props) {
             </Form.Select>
           </div>
           <div>
-            <Button>Add Topic</Button>
+            <Button className="ml-5 mt-3 btn-md w-25" variant="info">
+              Add Topic
+            </Button>
           </div>
-          <div className="w-25 m-3">
+          <div className="w-25 ml-5 mt-3">
             <InputGroup>
               <FormControl placeholder="Enter Topic" />
             </InputGroup>
@@ -32,22 +36,21 @@ function SessionsAdd(props) {
               variant="top"
               src="https://source.unsplash.com/user/c_v_r/100x100"
             />
-            <Card.Body>
-              <Card.Title>MATHS</Card.Title>
+            <Card.Body className="bg-info text-center">
+              <Card.Title>AI</Card.Title>
             </Card.Body>
           </Card>
         </div>
       </div>
-      <div className="d-flex justify-content-end">
-        <Button className="ml-5" variant="primary">
-          {" "}
-          start
-        </Button>
-        <Button className="ml-5" variant="primary">
+      <div className="d-flex justify-content-end mb-5">
+      <Button className=" btn-md" variant="warning">
+      <i class="fa-solid fa-circle-play"></i>start
+            </Button>
+        <Button className="ml-5" variant="warning">
           {" "}
           stop{" "}
         </Button>
-        <Button className="ml-5" variant="primary">
+        <Button className="ml-5" variant="danger">
           {" "}
           pause{" "}
         </Button>

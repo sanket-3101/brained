@@ -12,7 +12,7 @@ function Sessionslist(props) {
               variant="top"
               src="https://source.unsplash.com/user/c_v_r/100x100"
             />
-            <Card.Body>
+            <Card.Body className="bg-info">
               <Card.Title>MATHS</Card.Title>
             </Card.Body>
           </Card>
@@ -23,7 +23,7 @@ function Sessionslist(props) {
               variant="top"
               src="https://source.unsplash.com/user/c_v_r/100x100"
             />
-            <Card.Body>
+            <Card.Body className="bg-info">
               <Card.Title>Science</Card.Title>
             </Card.Body>
           </Card>
@@ -34,7 +34,7 @@ function Sessionslist(props) {
               variant="top"
               src="https://source.unsplash.com/user/c_v_r/100x100"
             />
-            <Card.Body>
+            <Card.Body className="bg-info">
               <Card.Title>align</Card.Title>
             </Card.Body>
           </Card>
@@ -42,12 +42,11 @@ function Sessionslist(props) {
       </div>
       <div className="text-center m-3">
         <Button
-          className="ml-5"
-          variant="primary"
+          className=""
+          variant="info"
           size="lg"
           onClick={() => props.handleShow()}
         >
-          {" "}
           Continue{" "}
         </Button>
       </div>
