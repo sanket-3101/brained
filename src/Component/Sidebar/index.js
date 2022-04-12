@@ -51,7 +51,7 @@ function Dashboard(props) {
             <Nav.Link onClick={() => navigate("/sessions")} eventKey="link-1">
               <i class="fas fa-hourglass-start"></i>Sessions
             </Nav.Link>
-            <Nav.Link onClick={() => navigate("/reports")} eventKey="link-2">
+            <Nav.Link onClick={() => navigate("/live")} eventKey="link-2">
               <i class="fas fa-broadcast-tower"></i>Live
             </Nav.Link>
             <Nav.Link onClick={() => navigate("/reports")} eventKey="link-2">

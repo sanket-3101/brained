@@ -3,6 +3,7 @@ import App from './Pages/Splash/App';
 import Login from './Pages/Login/Login'
 import Sessions from './Pages/Sessions/index'
 import DashboardPage from './Pages/Dashboard/Dashboard'
+import Live from './Pages/Live/live'
 
 
 
@@ -13,6 +14,7 @@ function AppRoutes() {
       <Route path="/login" element={<Login />} />
       <Route path="/dashboardpage" element={<DashboardPage />} />
       <Route path="/sessions" element={<Sessions />} />
+      <Route path="/live" element={<Live />} />
 
     
     </Routes>
