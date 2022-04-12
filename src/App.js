@@ -1,15 +1,20 @@
 import { Route, Routes } from 'react-router-dom';
 import App from './Pages/Splash/App';
 import Login from './Pages/Login/Login'
-import Home from './Pages/Home/Home'
-import Sesssion from './Pages/Session';
+import Sessions from './Pages/Sessions/index'
+import DashboardPage from './Pages/Dashboard/Dashboard'
+
+
+
 function AppRoutes() {
   return (
     <Routes>
       <Route path="/" element={<App />} />
       <Route path="/login" element={<Login />} />
-      <Route path="/home" element={<Home />} />
-      <Route path="/session" element={<Sesssion />} />
+      <Route path="/dashboardpage" element={<DashboardPage />} />
+      <Route path="/sessions" element={<Sessions />} />
+
+    
     </Routes>
   );
 }

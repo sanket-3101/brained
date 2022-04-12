@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import logo from './../../abc.jpeg';
+import logo from './../../assests/images/splash-bg.png';
 import './../../App.css';
 import { useNavigate } from 'react-router-dom';
 
