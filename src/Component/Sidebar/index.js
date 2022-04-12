@@ -5,9 +5,13 @@ import { useNavigate } from "react-router-dom";
 import image from "./../../assests/images/logo-symbol.png";
 function Dashboard(props) {
   let navigate = useNavigate();
-  const [show, setShow] = useState(true);
+  const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const handleNavigation = (navigateTo) => {
+    navigate(navigateTo)
+    handleClose()
+  }
   console.log(props);
   return (
     <>
@@ -22,7 +26,7 @@ function Dashboard(props) {
               <p className="mr-4">
                 <i class="fas fa-sliders-h"></i>setting
               </p>
-              <p onClick={() => navigate("/login")}>
+              <p onClick={() => handleNavigation("/login")}>
                 {" "}
                 <i class="fas fa-sign-out-alt"></i>logout
               </p>
@@ -45,21 +49,21 @@ function Dashboard(props) {
             <h5>Miss Riya.shah</h5>
           </div>
           <Nav defaultActiveKey="/home" className="flex-column">
-            <Nav.Link onClick={() => navigate("/dashboardpage")}>
+            <Nav.Link onClick={() => handleNavigation("/dashboardpage")}>
               <i class="fas fa-home"></i>Dashboard
             </Nav.Link>
-            <Nav.Link onClick={() => navigate("/sessions")} eventKey="link-1">
+            <Nav.Link onClick={() => handleNavigation("/sessions")} eventKey="link-1">
               <i class="fas fa-hourglass-start"></i>Sessions
             </Nav.Link>
-            <Nav.Link onClick={() => navigate("/live")} eventKey="link-2">
+            <Nav.Link onClick={() => handleNavigation("/live")} eventKey="link-2">
               <i class="fas fa-broadcast-tower"></i>Live
             </Nav.Link>
-            <Nav.Link onClick={() => navigate("/reports")} eventKey="link-2">
+            <Nav.Link onClick={() => handleNavigation("/reports")} eventKey="link-2">
               <i class="fas fa-chart-line"></i>Reports
             </Nav.Link>
 
             <Nav.Link
-              onClick={() => navigate("/testreports")}
+              onClick={() => handleNavigation("/testreports")}
               eventKey="link-2"
             >
               <i class="fas fa-chart-pie"></i>Test Reports
