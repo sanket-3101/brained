@@ -43,7 +43,7 @@ function Sessionslist(props) {
       <div className="text-center m-3">
         <Button
           className=""
-          variant="info"
+          variant="primary"
           size="lg"
           onClick={() => props.handleShow()}
         >

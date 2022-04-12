@@ -31,7 +31,7 @@ function SessionsAdd(props) {
           </div>
         </div>
         <div class="col-md-6 mt-5">
-          <Card style={{ width: "12rem" }}>
+          <Card style={{ width: "13rem" }}>
             <Card.Img
               variant="top"
               src="https://source.unsplash.com/user/c_v_r/100x100"
@@ -43,16 +43,14 @@ function SessionsAdd(props) {
         </div>
       </div>
       <div className="d-flex justify-content-end mb-5">
-      <Button className=" btn-md" variant="warning">
-      <i class="fa-solid fa-circle-play"></i>start
-            </Button>
-        <Button className="ml-5" variant="warning">
-          {" "}
-          stop{" "}
+        <Button className="" variant="warning">
+        <i class="fas fa-user-tie mr-2 "></i> Start{" "}
         </Button>
-        <Button className="ml-5" variant="danger">
-          {" "}
-          pause{" "}
+        <Button className="" variant="primary">
+          <i class="fas fa-user-tie mr-2 "></i> Pause{" "}
+        </Button>
+        <Button className="" variant="primary">
+          <i class="fas fa-user-tie mr-2 "></i> Stop{" "}
         </Button>
       </div>
     </>
