@@ -8,7 +8,7 @@ export const putChapterById = (id) => `${BASE_URL}/chapter/${id}`;
 export const deleteChapterById = (id) => `${BASE_URL}/chapter/${id}`;
 
 //device
-export const getDevice = `${BASE_URL}devices`;
+export const getDevice = `${BASE_URL}/devices`;
 export const getDeviceById = (id) => `${BASE_URL}/device/${id}`;
 
 //quiz

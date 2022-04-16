@@ -2,7 +2,8 @@ import React, { useEffect } from "react";
 import { Button, Container, Card } from "react-bootstrap";
 import { connect, useDispatch, useSelector } from "react-redux";
 import Dashboard from "../../Component/Sidebar/index";
-import { getAllDevice } from "../../redux/action/DeviceAction";
+import { getDeviceById } from "../../Constant/enpoint";
+import { getAllDevice ,getAllDeviceById} from "../../redux/action/DeviceAction";
 function Dashboardpage(props) {
   const dispatch = useDispatch();
   const { device } = useSelector(({ device }) => device);
@@ -24,7 +25,7 @@ console.log(device)
               <i class="fas fa-mobile-alt mr-2"></i>Connected{" "}
             </Button>
             <div>
-              <Button className="" variant="primary">
+              <Button className="" onClick={()=> dispatch(getAllDeviceById("0"))} variant="primary">
                 {" "}
                 <i class="fas fa-user-tie  mr-2"></i>device 1{" "}
               </Button>
