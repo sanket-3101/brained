@@ -1,9 +1,10 @@
 import axios from "axios";
 import { getDevice,getDeviceById } from "../../Constant/enpoint";
-import { GET_ALL_DEVICE_SUCCESS, GET_ALL_DEVICE_ERROR } from "./types";
+import { GET_ALL_DEVICE_SUCCESS, GET_ALL_DEVICE_ERROR, GET_ALL_DEVICE_LOADER } from "./types";
 
 export const getAllDevice = () => {
   return (dispatch) => {
+    dispatch({ type: GET_ALL_DEVICE_LOADER });
     axios
       .get(getDevice)
       .then((res) => {

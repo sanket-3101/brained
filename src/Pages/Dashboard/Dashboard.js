@@ -2,15 +2,14 @@ import React, { useEffect } from "react";
 import { Button, Container, Card } from "react-bootstrap";
 import { connect, useDispatch, useSelector } from "react-redux";
 import Dashboard from "../../Component/Sidebar/index";
-import { getDeviceById } from "../../Constant/enpoint";
 import {
   getAllDevice,
   getAllDeviceById,
 } from "../../redux/action/DeviceAction";
 function Dashboardpage(props) {
   const dispatch = useDispatch();
-  const { device } = useSelector(({ device }) => device);
-  console.log(device);
+  const { device, loader } = useSelector(({ device }) => device);
+  console.log(loader);
 
   useEffect(() => {
     dispatch(getAllDevice());
@@ -29,6 +28,13 @@ function Dashboardpage(props) {
       </Button>
     );
   };
+  const loaderShow = () => {
+    return (
+      <div class="spinner-border" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    );
+  };
 
   return (
     <>
@@ -43,6 +49,9 @@ function Dashboardpage(props) {
               <i class="fas fa-mobile-alt mr-2"></i>Connected{" "}
             </Button>
             <div>
+              {loader && (
+                 loaderShow()
+              )}
               {device &&
                 device.map((row) => {
                   return renderDeviceButton(row);
@@ -57,6 +66,9 @@ function Dashboardpage(props) {
               <i class="fas fa-mobile-alt mr-2"></i>Disconnected{" "}
             </Button>
             <div>
+            {loader && (
+                 loaderShow()
+              )}
               {device &&
                 device.map((row) => {
                   return renderDeviceButton(row);
@@ -71,6 +83,9 @@ function Dashboardpage(props) {
               <i class="fas fa-mobile-alt mr-2"></i>Check fit{" "}
             </Button>
             <div>
+            {loader && (
+                 loaderShow()
+              )}
               {device &&
                 device.map((row) => {
                   return renderDeviceButton(row);
