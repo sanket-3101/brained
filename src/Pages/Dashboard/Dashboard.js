@@ -3,15 +3,18 @@ import { Button, Container, Card } from "react-bootstrap";
 import { connect, useDispatch, useSelector } from "react-redux";
 import Dashboard from "../../Component/Sidebar/index";
 import { getDeviceById } from "../../Constant/enpoint";
-import { getAllDevice ,getAllDeviceById} from "../../redux/action/DeviceAction";
+import {
+  getAllDevice,
+  getAllDeviceById,
+} from "../../redux/action/DeviceAction";
 function Dashboardpage(props) {
   const dispatch = useDispatch();
   const { device } = useSelector(({ device }) => device);
-console.log(device)
+  console.log(device);
 
   useEffect(() => {
     dispatch(getAllDevice());
-}, [dispatch]);
+  }, [dispatch]);
   return (
     <>
       <Dashboard />
@@ -25,7 +28,21 @@ console.log(device)
               <i class="fas fa-mobile-alt mr-2"></i>Connected{" "}
             </Button>
             <div>
-              <Button className="" onClick={()=> dispatch(getAllDeviceById("0"))} variant="primary">
+              {device &&
+                device.map((row) => {
+                  debugger
+                  return (
+                    <Button
+                      className=""
+                      onClick={() => dispatch(getAllDeviceById(row.device_id))}
+                      variant="primary"
+                    >
+                      {" "}
+                      <i class="fas fa-user-tie  mr-2"></i>{row.name}
+                    </Button>
+                  );
+                })}
+              {/* <Button className="" onClick={()=> dispatch(getAllDeviceById("0"))} variant="primary">
                 {" "}
                 <i class="fas fa-user-tie  mr-2"></i>device 1{" "}
               </Button>
@@ -34,7 +51,7 @@ console.log(device)
               </Button>
               <Button className="" variant="primary">
                 <i class="fas fa-user-tie mr-2 "></i> device 2{" "}
-              </Button>
+              </Button> */}
             </div>
           </Card.Body>
         </Card>
@@ -74,9 +91,7 @@ console.log(device)
     </>
   );
 }
-const mapstatetoDispatch=()=>(
-  {
-    getAllDevice
-  }
-)
-export default connect(null, mapstatetoDispatch)(Dashboardpage)
+const mapstatetoDispatch = () => ({
+  getAllDevice,
+});
+export default connect(null, mapstatetoDispatch)(Dashboardpage);
