@@ -1,66 +1,66 @@
 import {
-  SET_CHAPTER_LOADER,
-  GET_ALL_CHAPTER_SUCCESS,
-  GET_ALL_CHAPTER_ERROR,
-  GET_CHAPTER_SUCCESS,
-  GET_CHAPTER_ERROR,
-  POST_CHAPTER_SUCCESS,
-  POST_CHAPTER_ERROR,
-  DELETE_CHAPTER_SUCCESS,
-  DELETE_CHAPTER_ERROR,
-  PUT_CHAPTER_SUCCESS,
-  PUT_CHAPTER_ERROR,
-} from "../action/types";
+  SUBJECT_LOADER,
+  GET_ALL_SUBJECT_SUCCESS,
+  GET_ALL_SUBJECT_ERROR,
+  GET_SUBJECT_SUCCESS,
+  GET_SUBJECT_ERROR,
+  POST_SUBJECT_SUCCESS,
+  POST_SUBJECT_ERROR,
+  DELETE_SUBJECT_SUCCESS,
+  DELETE_SUBJECT_ERROR,
+  PUT_SUBJECT_SUCCESS,
+  PUT_SUBJECT_ERROR,
+} from '../action/types'    
 
 const INITIAL_STATE = {
   loader: false,
-  chapter: [],
-  chapterDetails: null,
+  subject: [],
+  subjectDetails: null,
   error: null,
 };
 
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case SET_CHAPTER_LOADER:
+    case SUBJECT_LOADER:
       return {
         ...state,
         loader: true,
       };
-    case GET_ALL_CHAPTER_SUCCESS:
+    case GET_ALL_SUBJECT_SUCCESS:
       return {
         ...state,
         loader: false,
-        chapter: action.payload,
+        subject: action.payload,
         error: null,
       };
-    case GET_ALL_CHAPTER_ERROR:
+    case GET_ALL_SUBJECT_ERROR:
       return {
         ...state,
         loader: false,
-        chapter: action.payload,
+        subject: action.payload,
         error: action.payload,
       };
-    case GET_CHAPTER_SUCCESS:
+    case GET_SUBJECT_SUCCESS:
       return {
         ...state,
         loader: false,
-        chapterDetails: action.payload,
+        subjectDetails: action.payload,
         error: null,
       };
-    case GET_CHAPTER_ERROR:
+    case GET_SUBJECT_ERROR:
       return {
         ...state,
         loader: false,
-        chapterDetails: null,
+        subjectDetails: null,
         error: action.payload,
       };
-    case POST_CHAPTER_SUCCESS:
+    case POST_SUBJECT_SUCCESS:
       return {
         ...state,
         loader: false,
         error: null,
       };
-    case POST_CHAPTER_ERROR:
+    case POST_SUBJECT_ERROR:
       return {
         ...state,
         loader: false,
