@@ -1,7 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Button, Container, Card } from "react-bootstrap";
+import { connect, useDispatch, useSelector } from "react-redux";
 import Dashboard from "../../Component/Sidebar/index";
+import { getAllDevice } from "../../redux/action/DeviceAction";
 function Dashboardpage(props) {
+  const dispatch = useDispatch();
+  const { device } = useSelector(({ device }) => device);
+console.log(device)
+
+  useEffect(() => {
+    dispatch(getAllDevice());
+}, [dispatch]);
   return (
     <>
       <Dashboard />
@@ -64,4 +73,9 @@ function Dashboardpage(props) {
     </>
   );
 }
-export default Dashboardpage;
+const mapstatetoDispatch=()=>(
+  {
+    getAllDevice
+  }
+)
+export default connect(null, mapstatetoDispatch)(Dashboardpage)
