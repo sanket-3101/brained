@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Button, Container, Card } from "react-bootstrap";
+import { connect, useDispatch, useSelector } from "react-redux";
 import Dashboard from "../../Component/Sidebar/index";
-import { useSelector, useDispatch } from "react-redux";
 import { getAllDevice, setLoader, deviceById } from "../../redux/action/DeviceAction";
 function Dashboardpage(props) {
   const { loader, device, error } = useSelector((state) => state.device);
@@ -16,9 +16,17 @@ function Dashboardpage(props) {
   const getDeviceDetails = (data) => {
     dispatch(deviceById(data.device_id));
   }
+  const loaderShow = () => {
+    return (
+      <div class="spinner-border" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    );
+  };
   return (
     <>
       <Dashboard />
+      {loader && loaderShow()}
       {!loader && device ? (
         <>
           <Container className="dashboardpart">
@@ -83,4 +91,7 @@ function Dashboardpage(props) {
     </>
   );
 }
-export default Dashboardpage;
+const mapstatetoDispatch = () => ({
+  getAllDevice,
+});
+export default connect(null, mapstatetoDispatch)(Dashboardpage);

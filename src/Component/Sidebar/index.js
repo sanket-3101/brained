@@ -12,7 +12,6 @@ function Dashboard(props) {
     navigate(navigateTo)
     handleClose()
   }
-  console.log(props);
   return (
     <>
       <Navbar>
