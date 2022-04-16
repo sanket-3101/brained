@@ -1,6 +1,7 @@
 import axios from "axios";
 import { getDevice,getDeviceById } from "../../Constant/enpoint";
 import { GET_ALL_DEVICE_SUCCESS, GET_ALL_DEVICE_ERROR, GET_ALL_DEVICE_LOADER } from "./types";
+import { NotificationManager} from 'react-notifications';
 
 export const getAllDevice = () => {
   return (dispatch) => {
@@ -32,6 +33,9 @@ export const getAllDeviceById = (id) => {
         }
       })
       .catch((error) => {
+        debugger
+
+        NotificationManager.error(error.response.data.message);
         dispatch({ type: GET_ALL_DEVICE_ERROR, payload: error });
       });
   };

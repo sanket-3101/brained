@@ -6,11 +6,14 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "bootstrap-css-only/css/bootstrap.min.css";
+import 'react-notifications/lib/notifications.css';
 import "mdbreact/dist/css/mdb.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import { Provider } from "react-redux";
+import {NotificationContainer} from 'react-notifications';
+
 import rootReducer from '../src/redux/reducer/index'  
 const store = createStore(rootReducer,  applyMiddleware(thunk));
 ReactDOM.render(
@@ -19,6 +22,8 @@ ReactDOM.render(
       <BrowserRouter>
       <Provider store={store}>
         <AppRoutes />
+        <NotificationContainer/>
+
         </Provider>
       </BrowserRouter>
 
