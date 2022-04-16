@@ -15,6 +15,21 @@ function Dashboardpage(props) {
   useEffect(() => {
     dispatch(getAllDevice());
   }, [dispatch]);
+
+  const renderDeviceButton = (row) => {
+    return (
+      <Button
+        className=""
+        onClick={() => dispatch(getAllDeviceById(row.device_id))}
+        variant="primary"
+      >
+        {" "}
+        <i class="fas fa-user-tie  mr-2"></i>
+        {row.name}
+      </Button>
+    );
+  };
+
   return (
     <>
       <Dashboard />
@@ -30,28 +45,8 @@ function Dashboardpage(props) {
             <div>
               {device &&
                 device.map((row) => {
-                  debugger
-                  return (
-                    <Button
-                      className=""
-                      onClick={() => dispatch(getAllDeviceById(row.device_id))}
-                      variant="primary"
-                    >
-                      {" "}
-                      <i class="fas fa-user-tie  mr-2"></i>{row.name}
-                    </Button>
-                  );
+                  return renderDeviceButton(row);
                 })}
-              {/* <Button className="" onClick={()=> dispatch(getAllDeviceById("0"))} variant="primary">
-                {" "}
-                <i class="fas fa-user-tie  mr-2"></i>device 1{" "}
-              </Button>
-              <Button className="" variant="primary">
-                <i class="fas fa-user-tie  mr-2"></i> devices 2{" "}
-              </Button>
-              <Button className="" variant="primary">
-                <i class="fas fa-user-tie mr-2 "></i> device 2{" "}
-              </Button> */}
             </div>
           </Card.Body>
         </Card>
@@ -62,12 +57,10 @@ function Dashboardpage(props) {
               <i class="fas fa-mobile-alt mr-2"></i>Disconnected{" "}
             </Button>
             <div>
-              <Button className="" variant="primary">
-                <i class="fas fa-user-tie mr-2"></i> device 4{" "}
-              </Button>
-              <Button className="" variant="primary">
-                <i class="fas fa-user-tie mr-2"></i> device 5{" "}
-              </Button>
+              {device &&
+                device.map((row) => {
+                  return renderDeviceButton(row);
+                })}
             </div>
           </Card.Body>
         </Card>
@@ -78,12 +71,10 @@ function Dashboardpage(props) {
               <i class="fas fa-mobile-alt mr-2"></i>Check fit{" "}
             </Button>
             <div>
-              <Button className="" variant="primary">
-                <i class="fas fa-user-tie mr-2"></i> device 4{" "}
-              </Button>
-              <Button className="" variant="primary">
-                <i class="fas fa-user-tie mr-2"></i> device 5{" "}
-              </Button>
+              {device &&
+                device.map((row) => {
+                  return renderDeviceButton(row);
+                })}
             </div>
           </Card.Body>
         </Card>
