@@ -13,10 +13,10 @@ import {
 } from "../action/types";
 
 const INITIAL_STATE = {
-  loader: false,
+  cloader: false,
   chapter: [],
   chapterDetails: null,
-  error: null,
+  c_error: null,
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -24,47 +24,47 @@ export default (state = INITIAL_STATE, action) => {
     case SET_CHAPTER_LOADER:
       return {
         ...state,
-        loader: true,
+        cloader: true,
       };
     case GET_ALL_CHAPTER_SUCCESS:
       return {
         ...state,
-        loader: false,
+        cloader: false,
         chapter: action.payload,
-        error: null,
+        c_error: null,
       };
     case GET_ALL_CHAPTER_ERROR:
       return {
         ...state,
-        loader: false,
+        cloader: false,
         chapter: action.payload,
-        error: action.payload,
+        c_error: action.payload,
       };
     case GET_CHAPTER_SUCCESS:
       return {
         ...state,
-        loader: false,
+        cloader: false,
         chapterDetails: action.payload,
-        error: null,
+        c_error: null,
       };
     case GET_CHAPTER_ERROR:
       return {
         ...state,
-        loader: false,
+        cloader: false,
         chapterDetails: null,
-        error: action.payload,
+        c_error: action.payload,
       };
     case POST_CHAPTER_SUCCESS:
       return {
         ...state,
-        loader: false,
-        error: null,
+        cloader: false,
+        c_error: null,
       };
     case POST_CHAPTER_ERROR:
       return {
         ...state,
-        loader: false,
-        error: action.payload,
+        cloader: false,
+        c_error: action.payload,
       };
 
     default:

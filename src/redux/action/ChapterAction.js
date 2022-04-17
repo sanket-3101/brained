@@ -19,7 +19,7 @@ import {
   putChapterById,
   deleteChapterById,
 } from "../../Constant/enpoint";
-export const setLoader = () => {
+export const setChapterLoader = () => {
   return (dispatch) =>
     dispatch({
       type: SET_CHAPTER_LOADER,
@@ -33,11 +33,13 @@ export const getAllChapter = () => {
       .then((res) => {
         dispatch({
           type: GET_ALL_CHAPTER_SUCCESS,
+          payload: res.data.data
         });
       })
       .catch((err) => {
         dispatch({
           type: GET_ALL_CHAPTER_ERROR,
+          payload: err
         });
       });
   };
@@ -49,11 +51,13 @@ export const chapterById = (id) => {
       .then((res) => {
         dispatch({
           type: GET_CHAPTER_SUCCESS,
+          payload: res.data.data
         });
       })
       .catch((err) => {
         dispatch({
           type: GET_CHAPTER_ERROR,
+          payload: err
         });
       });
   };
@@ -65,11 +69,13 @@ export const postNewChapter = (data) => {
       .then((res) => {
         dispatch({
           type: POST_CHAPTER_SUCCESS,
+          payload: res.data.data
         });
       })
       .catch((err) => {
         dispatch({
           type: POST_CHAPTER_ERROR,
+          payload: err
         });
       });
   };
@@ -81,11 +87,13 @@ export const deleteSingleChapter = (id) => {
       .then((res) => {
         dispatch({
           type: DELETE_CHAPTER_SUCCESS,
+          payload: res.data.data
         });
       })
       .catch((err) => {
         dispatch({
           type: DELETE_CHAPTER_ERROR,
+          payload: err
         });
       });
   };
@@ -97,11 +105,13 @@ export const updateSingleChapter = (id) => {
       .then((res) => {
         dispatch({
           type: PUT_CHAPTER_SUCCESS,
+          payload: res.data.data
         });
       })
       .catch((err) => {
         dispatch({
           type: PUT_CHAPTER_ERROR,
+          payload: err
         });
       });
   };

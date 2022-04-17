@@ -1,6 +1,35 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Card, Form, FormControl, InputGroup } from "react-bootstrap";
+import { useParams } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { setLoader, subjectById } from "../../redux/action/SubjectAction";
+import {
+  setChapterLoader,
+  chapterById,
+} from "../../redux/action/ChapterAction";
 function SessionsAdd(props) {
+  let { id } = useParams();
+  const dispatch = useDispatch();
+  const { loader, subjectDetails, error } = useSelector(
+    (state) => state.subject
+  );
+  const { cloader, chapterDetails, c_error } = useSelector(
+    (state) => state.chapter
+  );
+
+  //get chapter
+  useEffect(() => {
+    dispatch(setLoader());
+    dispatch(subjectById(id));
+  }, []);
+  const handleChapterChange = (e) => {
+    dispatch(setChapterLoader());
+    dispatch(chapterById(1));
+    // console.log('event ==>', e.target.value)
+  };
+  console.log("Id ===>", id);
+  console.log("subject details ===>", subjectDetails);
+  console.log("chapter details ===>", chapterDetails);
   return (
     <>
       <div class="row" className="d-flex ">
@@ -12,7 +41,10 @@ function SessionsAdd(props) {
             </Button>
           </div>
           <div className="w-25 ml-5 mt-3">
-            <Form.Select aria-label="Default select example">
+            <Form.Select
+              onChange={handleChapterChange}
+              aria-label="Default select example"
+            >
               <option>select chapter</option>
               <option value="1">One</option>
               <option value="2">Two</option>
@@ -23,6 +55,18 @@ function SessionsAdd(props) {
             <Button className="ml-5 mt-3 btn-md w-25" variant="info">
               Add Topic
             </Button>
+          </div>
+          <div className="w-25 ml-5 mt-3">
+            <Form.Select aria-label="Default select example">
+              <option>select Topic</option>
+              {chapterDetails && !cloader ? (
+                <>
+                  {chapterDetails.topics.map((item) => (
+                    <option value="1">{item.name}</option>
+                  ))}
+                </>
+              ) : null}
+            </Form.Select>
           </div>
           <div className="w-25 ml-5 mt-3">
             <InputGroup>
@@ -44,7 +88,7 @@ function SessionsAdd(props) {
       </div>
       <div className="d-flex justify-content-end mb-5">
         <Button className="" variant="warning">
-        <i class="fas fa-user-tie mr-2 "></i> Start{" "}
+          <i class="fas fa-user-tie mr-2 "></i> Start{" "}
         </Button>
         <Button className="" variant="primary">
           <i class="fas fa-user-tie mr-2 "></i> Pause{" "}

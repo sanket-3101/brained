@@ -31,9 +31,10 @@ export const getAllSubject = () => {
     axios
       .get(getSubject)
       .then((res) => {
+        console.log(res)
         dispatch({
           type: GET_ALL_SUBJECT_SUCCESS,
-          payload: res
+          payload: res.data.data
         });
       })
       .catch((err) => {
