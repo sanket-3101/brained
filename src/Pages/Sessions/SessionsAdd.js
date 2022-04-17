@@ -13,6 +13,7 @@ import { setLoader, subjectById } from "../../redux/action/SubjectAction";
 import {
   setChapterLoader,
   chapterById,
+  getAllChapter,
 } from "../../redux/action/ChapterAction";
 import Dashboard from "../../Component/Sidebar";
 function SessionsAdd(props) {
@@ -21,14 +22,16 @@ function SessionsAdd(props) {
   const { loader, subjectDetails, error } = useSelector(
     (state) => state.subject
   );
-  const { cloader, chapterDetails, c_error } = useSelector(
+  const { cloader, chapterDetails, c_error, chapter } = useSelector(
     (state) => state.chapter
   );
+  console.log(chapter);
 
   //get chapter
   useEffect(() => {
     dispatch(setLoader());
     dispatch(subjectById(id));
+    dispatch(getAllChapter());
   }, []);
   const handleChapterChange = (e) => {
     dispatch(setChapterLoader());
@@ -62,9 +65,10 @@ function SessionsAdd(props) {
                     aria-label="Default select example"
                   >
                     <option>select chapter</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                    {chapter &&
+                      chapter.map((item) => (
+                        <option value={item.subject_id}>{item.name}</option>
+                      ))}
                   </Form.Select>
                 </div>
                 <div>
@@ -78,7 +82,7 @@ function SessionsAdd(props) {
                     {chapterDetails && !cloader ? (
                       <>
                         {chapterDetails.topics.map((item) => (
-                          <option value="1">{item.name}</option>
+                          <option value={item.id}>{item.name}</option>
                         ))}
                       </>
                     ) : null}

@@ -7,6 +7,7 @@ import {
   setLoader,
   deviceById,
 } from "../../redux/action/DeviceAction";
+import LoaderComponent from "../../Component/helper/LoaderComponent";
 function Dashboardpage(props) {
   const { loader, device, error } = useSelector((state) => state.device);
   const dispatch = useDispatch();
@@ -19,17 +20,11 @@ function Dashboardpage(props) {
   const getDeviceDetails = (data) => {
     dispatch(deviceById(data.device_id));
   };
-  const loaderShow = () => {
-    return (
-      <div class="spinner-border" role="status">
-        <span class="sr-only">Loading...</span>
-      </div>
-    );
-  };
+
   return (
     <>
       <Dashboard />
-      {loader && loaderShow()}
+      {loader && <LoaderComponent/>}
       {!loader && device ? (
         <>
           <Container className="dashboardpart">

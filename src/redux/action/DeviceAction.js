@@ -7,6 +7,7 @@ import {
   GET_ALL_DEVICE_ERROR,
 } from "./types";
 import { getDevice, getDeviceById } from "../../Constant/enpoint";
+import ErrorHandler from "../../Component/helper/ErrorHandler";
 export const setLoader = () => {
   return (dispatch) =>
     dispatch({
@@ -45,6 +46,7 @@ export const deviceById = (id) => {
         });
       })
       .catch((err) => {
+        ErrorHandler(err)
         dispatch({
           type: GET_DEVICE_ERROR,
           payload: err,
