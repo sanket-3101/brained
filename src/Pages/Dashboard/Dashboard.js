@@ -2,7 +2,11 @@ import React, { useEffect } from "react";
 import { Button, Container, Card } from "react-bootstrap";
 import { connect, useDispatch, useSelector } from "react-redux";
 import Dashboard from "../../Component/Sidebar/index";
-import { getAllDevice, setLoader, deviceById } from "../../redux/action/DeviceAction";
+import {
+  getAllDevice,
+  setLoader,
+  deviceById,
+} from "../../redux/action/DeviceAction";
 function Dashboardpage(props) {
   const { loader, device, error } = useSelector((state) => state.device);
   const dispatch = useDispatch();
@@ -12,10 +16,9 @@ function Dashboardpage(props) {
     dispatch(getAllDevice());
   }, []);
 
-  
   const getDeviceDetails = (data) => {
     dispatch(deviceById(data.device_id));
-  }
+  };
   const loaderShow = () => {
     return (
       <div class="spinner-border" role="status">
@@ -38,19 +41,23 @@ function Dashboardpage(props) {
                 <Button className=" btn-lg" variant="success">
                   <i class="fas fa-mobile-alt mr-2"></i>Connected{" "}
                 </Button>
-                {device
-                  .filter((item) => item.status == 1)
-                  .map((data) => (
-                    <>
-                      <div onClick={() => getDeviceDetails(data)}>
-                        <Button className="" variant="primary">
+                <div>
+                  {device
+                    .filter((item) => item.status == 1)
+                    .map((data) => (
+                      <>
+                        <Button
+                          className=""
+                          variant="primary"
+                          onClick={() => getDeviceDetails(data)}
+                        >
                           {" "}
-                          <i class="fas fa-user-tie  mr-2"></i>{data.name}{" "}
+                          <i class="fas fa-user-tie  mr-2"></i>
+                          {data.name}{" "}
                         </Button>
-                     
-                      </div>
-                    </>
-                  ))}
+                      </>
+                    ))}
+                </div>
               </Card.Body>
             </Card>
             <Card style={{ width: "50rem" }} className="mb-2">
@@ -60,12 +67,21 @@ function Dashboardpage(props) {
                   <i class="fas fa-mobile-alt mr-2"></i>Disconnected{" "}
                 </Button>
                 <div>
-                  <Button className="" variant="primary">
-                    <i class="fas fa-user-tie mr-2"></i> device 4{" "}
-                  </Button>
-                  <Button className="" variant="primary">
-                    <i class="fas fa-user-tie mr-2"></i> device 5{" "}
-                  </Button>
+                {device
+                    .filter((item) => item.status == 1)
+                    .map((data) => (
+                      <>
+                        <Button
+                          className=""
+                          variant="primary"
+                          onClick={() => getDeviceDetails(data)}
+                        >
+                          {" "}
+                          <i class="fas fa-user-tie  mr-2"></i>
+                          {data.name}{" "}
+                        </Button>
+                      </>
+                    ))}
                 </div>
               </Card.Body>
             </Card>
@@ -76,12 +92,21 @@ function Dashboardpage(props) {
                   <i class="fas fa-mobile-alt mr-2"></i>Check fit{" "}
                 </Button>
                 <div>
-                  <Button className="" variant="primary">
-                    <i class="fas fa-user-tie mr-2"></i> device 4{" "}
-                  </Button>
-                  <Button className="" variant="primary">
-                    <i class="fas fa-user-tie mr-2"></i> device 5{" "}
-                  </Button>
+                {device
+                    .filter((item) => item.status == 1)
+                    .map((data) => (
+                      <>
+                        <Button
+                          className=""
+                          variant="primary"
+                          onClick={() => getDeviceDetails(data)}
+                        >
+                          {" "}
+                          <i class="fas fa-user-tie  mr-2"></i>
+                          {data.name}{" "}
+                        </Button>
+                      </>
+                    ))}
                 </div>
               </Card.Body>
             </Card>
