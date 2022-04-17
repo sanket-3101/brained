@@ -43,7 +43,7 @@ function Dashboardpage(props) {
         <Button className="my-3 btn-lg" variant="info">
           Connected devices{" "}
         </Button>
-        <Card style={{ width: "50rem" }} className="mb-2">
+        <Card  className="mb-2">
           <Card.Body>
             <Button className=" btn-lg" variant="success">
               <i class="fas fa-mobile-alt mr-2"></i>Connected{" "}
@@ -59,7 +59,7 @@ function Dashboardpage(props) {
             </div>
           </Card.Body>
         </Card>
-        <Card style={{ width: "50rem" }} className="mb-2">
+        <Card  className="mb-2">
           <Card.Body>
             <Button className=" btn-lg" variant="danger">
               {" "}
@@ -76,7 +76,7 @@ function Dashboardpage(props) {
             </div>
           </Card.Body>
         </Card>
-        <Card style={{ width: "50rem" }} className="mb-2">
+        <Card  className="mb-2">
           <Card.Body>
             <Button className=" btn-lg" variant="warning">
               {" "}
