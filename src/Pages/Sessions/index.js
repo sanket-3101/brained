@@ -8,6 +8,7 @@ import { useSelector, useDispatch } from "react-redux";
 import {
   useNavigate,
 } from "react-router-dom";
+import Header from "../../Component/Headerfile";
 function Sessions(props) {
   const [show, setShow] = useState(true);
   const handleShow = () => setShow(false);
@@ -31,8 +32,13 @@ function Sessions(props) {
   console.log('subject ===>', subject)
   return (
     <>
-      <Dashboard />
+      <div style={{ display: "flex" }}>
+      <div>
+        {" "}
+        <Dashboard />
+      </div>
       <Container>
+      <Header/>
         <Button className="my-3 btn-lg" variant="info">
           Sessions{" "}
         </Button>
@@ -50,6 +56,7 @@ function Sessions(props) {
           </>
         ) : null}
       </Container>
+      </div>
     </>
   );
 }

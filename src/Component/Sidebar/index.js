@@ -3,7 +3,6 @@
 // import Image from "react-bootstrap/Image";
 // import { useNavigate } from "react-router-dom";
 // import image from "./../../assests/images/logo-symbol.png";
-// function Dashboard(props) {
 //   let navigate = useNavigate();
 //   const [show, setShow] = useState(true);
 //   const handleClose = () => setShow(false);
@@ -83,29 +82,40 @@
 //   );
 // }
 // export default Dashboard;
+import { Button } from "bootstrap";
 import React from "react";
+import { Container, Navbar } from "react-bootstrap";
+ import { useNavigate } from "react-router-dom";
 // import dashboard from '../assets/dashboard.png'
 // import sessions from '../assets/sessions.png'
 // import live from '../assets/live.png'
 // import report from '../assets/report.png'
 // import testreport from '../assets/testreport.png'
 
-export default function  Dashboard({changeNav, selectedNav}) {
-  const getList = (name, img, num) => (
+export default function Dashboard(props) {
+  let navigate = useNavigate();
+  //   const [show, setShow] = useState(true);
+  //   const handleClose = () => setShow(false);
+  //   const handleShow = () => setShow(true);
+    const handleNavigation = (navigateTo) => {
+      navigate(navigateTo);
+   };
+  const selectedNav = 1;
+  const getList = (name, img, num, routes,image) => (
     <>
       <div
-        onClick={() => changeNav(num)}
         style={{
           display: "flex",
-          backgroundColor: selectedNav === num ?  "white" : '',
+          backgroundColor: selectedNav === num ? "white" : "",
           width: "100%",
           height: "50px",
           justifyContent: "center",
           alignItems: "center",
-          marginBottom: '10px'
+          marginBottom: "10px",
         }}
+        onClick={() => handleNavigation(routes)}
       >
-           <img src={img} style={{height: '20px', marginRight: '20px'}} />
+       <i class={image}></i>
         <div
           style={{
             fontSize: "1.2rem",
@@ -113,17 +123,20 @@ export default function  Dashboard({changeNav, selectedNav}) {
             fontWeight: "bold",
           }}
         >
-         {name}
+          {name}
         </div>
       </div>
     </>
   );
+
   return (
+    <>
+     
     <div
       style={{
         height: "100%",
         backgroundColor: "darkblue",
-        width: "25vw",
+        width: "18vw",
         borderRadius: "15px",
         alignItems: "center",
       }}
@@ -139,7 +152,7 @@ export default function  Dashboard({changeNav, selectedNav}) {
           marginTop: "10px",
         }}
       >
-            {/* <img src={checkfit} style={{height: '20px', marginRight: '20px'}} /> */}
+        {/* <img src={checkfit} style={{height: '20px', marginRight: '20px'}} /> */}
         <div>BRAIN ED</div>
       </div>
       <div
@@ -172,11 +185,13 @@ export default function  Dashboard({changeNav, selectedNav}) {
       >
         Miss Riya Shah
       </div>
-      {getList('Dashboard', '', 1)}
-      {getList('Sessions', '', 2)}
-      {getList('Live', '', 3)}
-      {getList('Report', '', 4)}
-      {getList('Test Report', '', 5)}
+      {getList("Dashboard", "", 1, "/dashboardpage","fas fa-home")}
+      {getList("Sessions", "", 2, "/sessions","fas fa-hourglass-start")}
+      {getList("Live", "", 3, "/live","fas fa-broadcast-tower")}
+      {getList("Report", "", 4, "/report",'fas fa-chart-line')}
+      {getList("Test Report","", 5, "/testreport","fas fa-chart-pie")}
     </div>
+    </>
+      
   );
 }
