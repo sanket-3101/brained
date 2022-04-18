@@ -22,9 +22,13 @@ function Dashboardpage(props) {
   };
 
   return (
-    <>
-      <Dashboard />
-      {loader && <LoaderComponent/>}
+    <div style={{ display: "flex" }}>
+      <div>
+        {" "}
+        <Dashboard />
+      </div>
+
+      {loader && <LoaderComponent />}
       {!loader && device ? (
         <>
           <Container className="dashboardpart">
@@ -62,7 +66,7 @@ function Dashboardpage(props) {
                   <i class="fas fa-mobile-alt mr-2"></i>Disconnected{" "}
                 </Button>
                 <div>
-                {device
+                  {device
                     .filter((item) => item.status == 1)
                     .map((data) => (
                       <>
@@ -87,7 +91,7 @@ function Dashboardpage(props) {
                   <i class="fas fa-mobile-alt mr-2"></i>Check fit{" "}
                 </Button>
                 <div>
-                {device
+                  {device
                     .filter((item) => item.status == 1)
                     .map((data) => (
                       <>
@@ -108,7 +112,7 @@ function Dashboardpage(props) {
           </Container>
         </>
       ) : null}
-    </>
+    </div>
   );
 }
 const mapstatetoDispatch = () => ({
