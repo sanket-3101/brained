@@ -16,6 +16,7 @@ import {
   getAllChapter,
 } from "../../redux/action/ChapterAction";
 import Dashboard from "../../Component/Sidebar";
+import Header from "../../Component/Headerfile";
 function SessionsAdd(props) {
   let { id } = useParams();
   const dispatch = useDispatch();
@@ -42,8 +43,12 @@ function SessionsAdd(props) {
   console.log("chapter details ===>", chapterDetails);
   return (
     <>
-      <Dashboard />
-      <Container>
+ <div style={{ display: "flex" }}>
+      <div>
+        {" "}
+        <Dashboard />
+      </div>      <Container>
+      <Header/>
         <Button className="my-3 btn-lg" variant="info">
           Sessions{" "}
         </Button>
@@ -119,6 +124,7 @@ function SessionsAdd(props) {
           </Card>
         </>
       </Container>
+      </div>
     </>
   );
 }

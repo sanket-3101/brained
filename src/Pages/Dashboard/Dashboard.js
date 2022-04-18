@@ -8,6 +8,7 @@ import {
   deviceById,
 } from "../../redux/action/DeviceAction";
 import LoaderComponent from "../../Component/helper/LoaderComponent";
+import Header from "../../Component/Headerfile";
 function Dashboardpage(props) {
   const { loader, device, error } = useSelector((state) => state.device);
   const dispatch = useDispatch();
@@ -32,6 +33,7 @@ function Dashboardpage(props) {
       {!loader && device ? (
         <>
           <Container className="dashboardpart">
+            <Header/>
             <Button className="my-3 btn-lg" variant="info">
               Connected devices{" "}
             </Button>
