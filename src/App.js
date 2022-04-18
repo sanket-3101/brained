@@ -6,7 +6,7 @@ import SessionList from './Pages/Sessions/Sessionlist'
 import DashboardPage from './Pages/Dashboard/Dashboard'
 import Live from './Pages/Live/live'
 import SessionsAdd from './Pages/Sessions/SessionsAdd';
-
+import Report from './Pages/Reports/report'
 
 
 function AppRoutes() {
@@ -18,6 +18,7 @@ function AppRoutes() {
       <Route path="/sessions" element={<Sessions />} />
       <Route path="/sessions/:id" element={<SessionsAdd />} />
       <Route path="/live" element={<Live />} />
+      <Route path="/report" element={<Report />} />
 
     
     </Routes>

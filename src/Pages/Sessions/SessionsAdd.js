@@ -35,8 +35,7 @@ function SessionsAdd(props) {
   }, []);
   const handleChapterChange = (e) => {
     dispatch(setChapterLoader());
-    dispatch(chapterById(1));
-    // console.log('event ==>', e.target.value)
+    dispatch(chapterById(e.target.value));
   };
   console.log("Id ===>", id);
   console.log("subject details ===>", subjectDetails);
