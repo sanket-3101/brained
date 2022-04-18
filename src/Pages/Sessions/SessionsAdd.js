@@ -19,13 +19,14 @@ import Dashboard from "../../Component/Sidebar";
 function SessionsAdd(props) {
   let { id } = useParams();
   const dispatch = useDispatch();
+  const [selectedChapter, setSelectedChapter] = useState("");
   const { loader, subjectDetails, error } = useSelector(
     (state) => state.subject
   );
   const { cloader, chapterDetails, c_error, chapter } = useSelector(
     (state) => state.chapter
   );
-  console.log(chapter);
+  console.log('data ==>', chapter);
 
   //get chapter
   useEffect(() => {
@@ -34,8 +35,9 @@ function SessionsAdd(props) {
     dispatch(getAllChapter());
   }, []);
   const handleChapterChange = (e) => {
-    dispatch(setChapterLoader());
-    dispatch(chapterById(e.target.value));
+    setSelectedChapter(e.target.value);
+    // dispatch(setChapterLoader());
+    // dispatch(chapterById(e.target.value));
   };
   console.log("Id ===>", id);
   console.log("subject details ===>", subjectDetails);
@@ -54,16 +56,14 @@ function SessionsAdd(props) {
               <div class="col-md-6">
                 <h5 className="ml-5 mt-5">selected Sujects:</h5>
                 <div>
-                  <Button className="ml-5 btn-md w-25" variant="info">
-                    Add Chapter
-                  </Button>
+                  <Form.Label>Select Subject</Form.Label>
                 </div>
-                <div className="w-25 ml-5 mt-3">
+                <div className="w-100 mt-10 mb-10">
                   <Form.Select
                     onChange={handleChapterChange}
                     aria-label="Default select example"
                   >
-                    <option>select chapter</option>
+                    <option value=" ">select chapter</option>
                     {chapter &&
                       chapter.map((item) => (
                         <option value={item.subject_id}>{item.name}</option>
@@ -71,11 +71,20 @@ function SessionsAdd(props) {
                   </Form.Select>
                 </div>
                 <div>
-                  <Button className="ml-5 mt-3 btn-md w-25" variant="info">
+                  <Form.Label>Topic</Form.Label>
+
+                  {/* <Button className="ml-5 mt-3 btn-md w-25" variant="info">
                     Add Topic
-                  </Button>
+                  </Button> */}
                 </div>
-                <div className="w-25 ml-5 mt-3">
+                <InputGroup>
+                  <FormControl
+                    style={{ height: "100px" }}
+                    as="textarea"
+                    placeholder="Enter Topic"
+                  />
+                </InputGroup>
+                {/* <div className="w-25 ml-5 mt-3">
                   <Form.Select aria-label="Default select example">
                     <option>select Topic</option>
                     {chapterDetails && !cloader ? (
@@ -86,12 +95,12 @@ function SessionsAdd(props) {
                       </>
                     ) : null}
                   </Form.Select>
-                </div>
-                <div className="w-25 ml-5 mt-3">
+                </div> */}
+                {/* <div className="w-25 ml-5 mt-3">
                   <InputGroup>
                     <FormControl placeholder="Enter Topic" />
                   </InputGroup>
-                </div>
+                </div> */}
               </div>
               <div class="col-md-6 mt-5">
                 <Card style={{ width: "13rem" }}>
@@ -100,7 +109,7 @@ function SessionsAdd(props) {
                     src="https://source.unsplash.com/user/c_v_r/100x100"
                   />
                   <Card.Body className="bg-info text-center">
-                    <Card.Title>AI</Card.Title>
+                    <Card.Title>{chapter ? chapter.name : ''}</Card.Title>
                   </Card.Body>
                 </Card>
               </div>
