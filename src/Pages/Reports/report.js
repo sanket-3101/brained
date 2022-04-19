@@ -22,6 +22,7 @@ import Header from "../../Component/Headerfile";
 import axios from "axios";
 import { getReportData } from "../../Constant/enpoint";
 import { useSelector, useDispatch } from "react-redux";
+import { NotificationManager } from "react-notifications";
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -84,7 +85,7 @@ function Report(props) {
         })
         .catch((err) => console.log(err));
     } else {
-      alert("No Current Session");
+      NotificationManager.error("No Current Session");
     }
   };
   const handleSessionChange = () => {}

@@ -23,6 +23,7 @@ import {
 } from "../../redux/action/SessionAction";
 import Dashboard from "../../Component/Sidebar";
 import Header from "../../Component/Headerfile";
+import { NotificationManager } from "react-notifications";
 function SessionsAdd(props) {
   let { id } = useParams();
   let navigate = useNavigate();
@@ -55,11 +56,11 @@ function SessionsAdd(props) {
       .filter((item) => item.status == 1)
       .map((item) => deviceid.push(item.device_id));
     if (topic_name == "") {
-      alert("Topic Name is Required");
+      NotificationManager.error("Topic Name is Required");
     } else if (selectedChapter == "") {
-      alert("Please Select Chapter");
+      NotificationManager.error("Please Select Chapter");
     } else if (deviceid.length < 1) {
-      alert("Cannot find device id redirecting to dashboard and try again !");
+      NotificationManager.error("Cannot find device id redirecting to dashboard and try again !");
       navigate("/dashboardpage");
     } else {
       const data = {
@@ -75,7 +76,7 @@ function SessionsAdd(props) {
     if (sessionDetails) {
       dispatch(removeSession(sessionDetails.id));
     } else {
-      alert("No Session Available!!");
+      NotificationManager.error("No Session Available!!");
     }
   };
   return (

@@ -7,6 +7,7 @@ import {
   PUT_SESSION_ERROR,
 } from "./types";
 import { postSesssion, putSession } from "../../Constant/enpoint";
+import { NotificationManager } from "react-notifications";
 export const setSessionLoader = () => {
   return (dispatch) =>
     dispatch({
@@ -43,7 +44,7 @@ export const removeSession = (id) => {
           type: PUT_SESSION_SUCCESS,
           payload: "",
         });
-        alert("Session Stop Successfully !!!");
+        NotificationManager.error("Session Stop Successfully !!!");
       })
       .catch((err) => {
         dispatch({
