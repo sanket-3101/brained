@@ -85,7 +85,7 @@
 import { Button } from "bootstrap";
 import React from "react";
 import { Container, Navbar } from "react-bootstrap";
- import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 // import dashboard from '../assets/dashboard.png'
 // import sessions from '../assets/sessions.png'
 // import live from '../assets/live.png'
@@ -93,20 +93,17 @@ import { Container, Navbar } from "react-bootstrap";
 // import testreport from '../assets/testreport.png'
 
 export default function Dashboard(props) {
+  const { pathname } = useLocation();
   let navigate = useNavigate();
-  //   const [show, setShow] = useState(true);
-  //   const handleClose = () => setShow(false);
-  //   const handleShow = () => setShow(true);
-    const handleNavigation = (navigateTo) => {
-      navigate(navigateTo);
-   };
-  const selectedNav = 1;
-  const getList = (name, img, num, routes,image) => (
+  const handleNavigation = (navigateTo) => {
+    navigate(navigateTo);
+  };
+  const getList = (name, img, num, routes, image) => (
     <>
       <div
         style={{
           display: "flex",
-          backgroundColor: selectedNav === num ? "white" : "",
+          backgroundColor: pathname === routes ? "white" : "",
           width: "100%",
           height: "50px",
           justifyContent: "center",
@@ -115,7 +112,7 @@ export default function Dashboard(props) {
         }}
         onClick={() => handleNavigation(routes)}
       >
-       <i class={image}></i>
+        <i class={image}></i>
         <div
           style={{
             fontSize: "1.2rem",
@@ -131,67 +128,65 @@ export default function Dashboard(props) {
 
   return (
     <>
-     
-    <div
-      style={{
-        height: "100%",
-        backgroundColor: "darkblue",
-        width: "18vw",
-        borderRadius: "15px",
-        alignItems: "center",
-      }}
-    >
       <div
         style={{
-          width: "100%",
-          display: "flex",
-          justifyContent: "center",
+          height: "100%",
+          backgroundColor: "darkblue",
+          width: "18vw",
+          borderRadius: "15px",
           alignItems: "center",
-          color: "white",
-          fontWeight: "bold",
-          marginTop: "10px",
         }}
       >
-        {/* <img src={checkfit} style={{height: '20px', marginRight: '20px'}} /> */}
-        <div>BRAIN ED</div>
+        <div
+          style={{
+            width: "100%",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            color: "white",
+            fontWeight: "bold",
+            marginTop: "10px",
+          }}
+        >
+          {/* <img src={checkfit} style={{height: '20px', marginRight: '20px'}} /> */}
+          <div>BRAIN ED</div>
+        </div>
+        <div
+          style={{
+            height: "80px",
+            width: "80px",
+            borderRadius: "40px",
+            marginLeft: "35%",
+            justifyContent: "center",
+            alignItems: "center",
+            display: "flex",
+            backgroundColor: "white",
+            marginTop: "20px",
+          }}
+        >
+          <img
+            style={{ height: "50px" }}
+            src="https://www.pngitem.com/pimgs/m/404-4042710_circle-profile-picture-png-transparent-png.png"
+          />
+        </div>
+        <div
+          style={{
+            marginTop: "20px",
+            marginBottom: "10px",
+            marginLeft: "25%",
+            color: "rgb(0, 196, 250)",
+            fontWeight: "bold",
+            fontSize: "1.3rem",
+          }}
+        >
+          Miss Riya Shah
+        </div>
+        {getList("Dashboard", "", 1, "/dashboardpage", "fas fa-home")}
+        {getList("Sessions", "", 2, "/sessions", "fas fa-hourglass-start")}
+        {getList("Live", "", 3, "/live", "fas fa-broadcast-tower")}
+        {getList("Report", "", 4, "/report", "fas fa-chart-line")}
+        {getList("Test Report", "", 5, "/testreport", "fas fa-chart-pie")}
       </div>
-      <div
-        style={{
-          height: "80px",
-          width: "80px",
-          borderRadius: "40px",
-          marginLeft: "35%",
-          justifyContent: "center",
-          alignItems: "center",
-          display: "flex",
-          backgroundColor: "white",
-          marginTop: "20px",
-        }}
-      >
-        <img
-          style={{ height: "50px" }}
-          src="https://www.pngitem.com/pimgs/m/404-4042710_circle-profile-picture-png-transparent-png.png"
-        />
-      </div>
-      <div
-        style={{
-          marginTop: "20px",
-          marginBottom: "10px",
-          marginLeft: "25%",
-          color: "rgb(0, 196, 250)",
-          fontWeight: "bold",
-          fontSize: "1.3rem",
-        }}
-      >
-        Miss Riya Shah
-      </div>
-      {getList("Dashboard", "", 1, "/dashboardpage","fas fa-home")}
-      {getList("Sessions", "", 2, "/sessions","fas fa-hourglass-start")}
-      {getList("Live", "", 3, "/live","fas fa-broadcast-tower")}
-      {getList("Report", "", 4, "/report",'fas fa-chart-line')}
-      {getList("Test Report","", 5, "/testreport","fas fa-chart-pie")}
-    </div>
     </>
-      
   );
 }
