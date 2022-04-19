@@ -1,6 +1,13 @@
-import React from "react";
-import { Button, Container, Card } from "react-bootstrap";
+import React, { useEffect, useState } from "react";
 import Dashboard from "../../Component/Sidebar/index";
+import {
+  Button,
+  Card,
+  Container,
+  Form,
+  FormControl,
+  InputGroup,
+} from "react-bootstrap";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -12,6 +19,9 @@ import {
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
 import Header from "../../Component/Headerfile";
+import axios from "axios";
+import { getReportData } from "../../Constant/enpoint";
+import { useSelector, useDispatch } from "react-redux";
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -56,7 +66,28 @@ export const data = {
     },
   ],
 };
+
 function Report(props) {
+  const { sessionDetails } = useSelector((state) => state.session);
+  const [graphData, setGraphData] = useState(null);
+  const [sessionList, setSessionList] = useState([])
+  useEffect(() => {
+    getReportsData();
+  }, []);
+
+  const getReportsData = () => {
+    if (sessionDetails) {
+      axios
+        .get(getReportData(1))
+        .then((res) => {
+          setGraphData(res.data.data);
+        })
+        .catch((err) => console.log(err));
+    } else {
+      alert("No Current Session");
+    }
+  };
+  const handleSessionChange = () => {}
   return (
     <>
       <div style={{ display: "flex" }}>
@@ -69,8 +100,23 @@ function Report(props) {
           <Button className="my-3 btn-lg" variant="info">
             Report
           </Button>
+          <div>
+            <Form.Label>Select Session</Form.Label>
+          </div>
+          <div className="w-100 mt-10">
+            <Form.Select
+              onChange={(e) => handleSessionChange(e)}
+              aria-label="Default select example"
+            >
+              <option value=" ">Select Session</option>
+              {/* {sessionList &&
+                sessionList.map((item) => (
+                  <option value={item.subject_id}>{item.name}</option>
+                ))} */}
+            </Form.Select>
+          </div>
           <div style={{ height: "200px" }}>
-            <Bar options={options} data={data} />;
+            {graphData ? <Bar options={options} data={graphData} /> : ""}
           </div>
         </Container>
       </div>

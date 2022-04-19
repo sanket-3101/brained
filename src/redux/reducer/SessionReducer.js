@@ -2,6 +2,8 @@ import {
   POST_SESSION_SUCCESS,
   POST_SESSION_LOADER,
   POST_SESSION_ERROR,
+  PUT_SESSION_SUCCESS,
+  PUT_SESSION_ERROR
 } from "../action/types";
 const INITIAL_STATE = {
   loader: false,
@@ -21,7 +23,7 @@ export default (state = INITIAL_STATE, action) => {
         ...state,
         loader: false,
         error: null,
-        sessionDetails: action.paylaod,
+        sessionDetails: action.payload,
       };
     case POST_SESSION_ERROR:
       return {
@@ -29,6 +31,18 @@ export default (state = INITIAL_STATE, action) => {
         loader: false,
         sessionDetails: null,
         error: action.payload,
+      };
+    case PUT_SESSION_SUCCESS:
+      return {
+        ...state,
+        loader: false,
+        sessionDetails: null,
+        error: null,
+      };
+    case PUT_SESSION_ERROR:
+      return {
+        ...state,
+        loader: false,
       };
     default:
       return state;

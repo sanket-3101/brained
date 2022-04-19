@@ -1,8 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Button, Container, Card } from "react-bootstrap";
 import Header from "../../Component/Headerfile";
 import Dashboard from "../../Component/Sidebar/index";
+import { useSelector, useDispatch } from "react-redux";
 function Dashboardpage(props) {
+  const {  sessionDetails } = useSelector((state) => state.session);
+
+  useEffect(() => {
+    console.log('Effect Called ===>')
+    if(sessionDetails) {
+
+    }
+  }, [])
   return (
     <>
       <div style={{ display: "flex" }}>

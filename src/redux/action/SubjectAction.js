@@ -31,16 +31,16 @@ export const getAllSubject = () => {
     axios
       .get(getSubject)
       .then((res) => {
-        console.log(res)
+        console.log(res);
         dispatch({
           type: GET_ALL_SUBJECT_SUCCESS,
-          payload: res.data.data
+          payload: res.data.data,
         });
       })
       .catch((err) => {
         dispatch({
           type: GET_ALL_SUBJECT_ERROR,
-          payload: err
+          payload: err,
         });
       });
   };
@@ -52,11 +52,13 @@ export const subjectById = (id) => {
       .then((res) => {
         dispatch({
           type: GET_SUBJECT_SUCCESS,
+          payload: res.data.data,
         });
       })
       .catch((err) => {
         dispatch({
           type: GET_SUBJECT_ERROR,
+          payload: err,
         });
       });
   };
@@ -68,11 +70,13 @@ export const postNewSubject = (data) => {
       .then((res) => {
         dispatch({
           type: POST_SUBJECT_SUCCESS,
+          payload: res.data.data,
         });
       })
       .catch((err) => {
         dispatch({
           type: POST_SUBJECT_ERROR,
+          payload: err,
         });
       });
   };
@@ -84,11 +88,13 @@ export const deleteSingleSubject = (id) => {
       .then((res) => {
         dispatch({
           type: DELETE_SUBJECT_SUCCESS,
+          payload: res.data.data,
         });
       })
       .catch((err) => {
         dispatch({
           type: DELETE_SUBJECT_ERROR,
+          payload: err,
         });
       });
   };

@@ -19,7 +19,7 @@ function AppRoutes() {
       <Route path="/sessions/:id" element={<SessionsAdd />} />
       <Route path="/live" element={<Live />} />
       <Route path="/report" element={<Report />} />
-
+    
     
     </Routes>
   );

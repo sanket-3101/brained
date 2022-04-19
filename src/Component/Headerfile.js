@@ -5,7 +5,7 @@ function Header(props) {
     let navigate = useNavigate();
 
     return(
-        <Navbar fixed="left">
+        <Navbar style={{boxShadow: 'none'}} fixed="left">
         <Container> 
           <Navbar.Toggle />
           <Navbar.Collapse className="justify-content-end">
