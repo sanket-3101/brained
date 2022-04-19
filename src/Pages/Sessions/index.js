@@ -45,7 +45,7 @@ function Sessions(props) {
         {loader && loaderShow()}
         {!loader && subject ? (
           <>
-            <Card style={{ width: "80rem" }} className="">
+            <Card style={{ width: "65rem" }} className="">
               {/* {show ? (
                 <Sessionslist data={subject} handleShow={onClick} />
               ) : (

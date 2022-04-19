@@ -15,7 +15,9 @@ export const getDeviceById = (id) => `${BASE_URL}device/${id}`;
 export const getQuiz = `${BASE_URL}getQuiz`;
 
 //session
-export const postSesssion = `${BASE_URL}sesssion`;
+export const postSesssion = `${BASE_URL}session`;
+export const putSession = (id) => `${BASE_URL}session/${id}`;
+export const endSession = `${BASE_URL}endsession`;
 
 //Subject
 export const getSubject = `${BASE_URL}subjects`;
@@ -23,3 +25,6 @@ export const getSubjectById = (id) => `${BASE_URL}subject/${id}`;
 export const postSubject = `${BASE_URL}subject`;
 export const putSubjectById = (id) => `${BASE_URL}subject/${id}`;
 export const deleteSubjectById = (id) => `${BASE_URL}subject/${id}`;
+//report
+export const getReportData = (id) =>
+  `${BASE_URL}getSessionReport?session_id=${id}`;
