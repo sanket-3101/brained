@@ -79,5 +79,5 @@ export const POST_TOPIC_SUCCESS = "POST_TOPIC_SUCCESS";
 export const POST_TOPIC_ERROR = "POST_TOPIC_ERROR";
 
 //socket
-export const SET_SOCKET_URL = 'SET_SOCKET_URL'
-
+export const SET_SOCKET_URL = 'SET_SOCKET_URL';
+export const SET_LIVE_DATA ='SET_LIVE_DATA';

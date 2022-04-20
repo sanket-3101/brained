@@ -5,9 +5,11 @@ import {
   POST_SESSION_ERROR,
   PUT_SESSION_SUCCESS,
   PUT_SESSION_ERROR,
-  GET_ALL_SESSION_SUCCESS
+  GET_ALL_SESSION_SUCCESS,
+  SET_LIVE_DATA
 } from "./types";
 import { postSesssion, putSession ,getSesssion} from "../../Constant/enpoint";
+
 import { NotificationManager } from "react-notifications";
 export const setSessionLoader = () => {
   return (dispatch) =>
@@ -15,6 +17,13 @@ export const setSessionLoader = () => {
       type: POST_SESSION_LOADER,
     });
 };
+export const setLiveData = (data) => {
+  return (dispatch) =>
+    dispatch({
+      type: SET_LIVE_DATA,
+      payload: data
+    });
+}
 export const getAllSessions = () => {
   return (dispatch) => {
     axios
@@ -63,6 +72,10 @@ export const removeSession = (id) => {
         dispatch({
           type: PUT_SESSION_SUCCESS,
           payload: "",
+        });
+        dispatch({
+          type: SET_LIVE_DATA,
+          payload: []
         });
         NotificationManager.error("Session Stop Successfully !!!");
       })
