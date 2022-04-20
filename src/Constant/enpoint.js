@@ -15,6 +15,7 @@ export const getDeviceById = (id) => `${BASE_URL}device/${id}`;
 export const getQuiz = `${BASE_URL}getQuiz`;
 
 //session
+export const getSesssion = `${BASE_URL}sessions`;
 export const postSesssion = `${BASE_URL}session`;
 export const putSession = (id) => `${BASE_URL}session/${id}`;
 export const endSession = `${BASE_URL}endsession`;
