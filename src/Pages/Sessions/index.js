@@ -5,19 +5,17 @@ import Sessionslist from "./Sessionlist";
 import SessionsAdd from "./SessionsAdd";
 import { setLoader, getAllSubject } from "../../redux/action/SubjectAction";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  useNavigate,
-} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Header from "../../Component/Headerfile";
 function Sessions(props) {
   const [show, setShow] = useState(true);
   const handleShow = () => setShow(false);
   const { loader, subject, error } = useSelector((state) => state.subject);
   const dispatch = useDispatch();
-  let navigate = useNavigate(); 
+  let navigate = useNavigate();
   useEffect(() => {
     dispatch(setLoader());
-    dispatch(getAllSubject())
+    dispatch(getAllSubject());
   }, []);
   const loaderShow = () => {
     return (
@@ -26,36 +24,37 @@ function Sessions(props) {
       </div>
     );
   };
-  const onClick =(data) => {
+  const onClick = (data) => {
     navigate(`/sessions/${data.id}`);
-  }
-  console.log('subject ===>', subject)
+  };
+  console.log("subject ===>", subject);
   return (
     <>
-      <div style={{ display: "flex" }}>
-      <div>
-        {" "}
-        <Dashboard />
-      </div>
-      <Container>
-      <Header/>
-        <Button className="my-3 btn-lg" variant="info">
-          Sessions{" "}
-        </Button>
-        {loader && loaderShow()}
-        {!loader && subject ? (
-          <>
-            <Card style={{ width: "65rem" }} className="">
-              {/* {show ? (
+      <div className="mainContainer">
+        <div>
+          {" "}
+          <Dashboard />
+        </div>
+        <Container>
+          <Header />
+          <Button className="my-3 btn-lg" variant="info">
+            Sessions{" "}
+          </Button>
+
+          {loader && loaderShow()}
+          {!loader && subject ? (
+            <>
+              <Card style={{ width: "78vw" }} className="">
+                {/* {show ? (
                 <Sessionslist data={subject} handleShow={onClick} />
               ) : (
                 <SessionsAdd />
               )} */}
-                   <Sessionslist data={subject} handleShow={onClick} />
-            </Card>
-          </>
-        ) : null}
-      </Container>
+                <Sessionslist data={subject} handleShow={onClick} />
+              </Card>
+            </>
+          ) : null}
+        </Container>
       </div>
     </>
   );

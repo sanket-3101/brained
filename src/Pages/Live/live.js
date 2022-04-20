@@ -4,27 +4,27 @@ import Header from "../../Component/Headerfile";
 import Dashboard from "../../Component/Sidebar/index";
 import { useSelector, useDispatch } from "react-redux";
 function Dashboardpage(props) {
-  const {  sessionDetails } = useSelector((state) => state.session);
+  const { sessionDetails } = useSelector((state) => state.session);
 
   useEffect(() => {
-    console.log('Effect Called ===>')
-    if(sessionDetails) {
-
+    console.log("Effect Called ===>");
+    if (sessionDetails) {
     }
-  }, [])
+  }, []);
   return (
     <>
-      <div style={{ display: "flex" }}>
+      <div className="mainContainer">
         <div>
           {" "}
           <Dashboard />
         </div>
         <Container className="dashboardpart">
-        <Header/>
+          <Header />
           <Button className="my-3 btn-lg" variant="info">
             Live
           </Button>
-          <Card style={{ width: "50rem" }} className="mb-2">
+
+          <Card style={{ width: "78vw" }} className="mb-2 rightCard">
             <Card.Body>
               <div className="d-flex">
                 <h2>
@@ -77,10 +77,6 @@ function Dashboardpage(props) {
                   <i class="fas fa-user-tie mr-2 "></i> device 2{" "}
                 </Button>
               </div>
-            </Card.Body>
-          </Card>
-          <Card style={{ width: "50rem" }} className="mb-2">
-            <Card.Body>
               <Button className=" btn-lg" variant="info">
                 <i class="fas fa-mobile-alt mr-2"></i>High attention & focused
                 of all device{" "}
@@ -93,10 +89,6 @@ function Dashboardpage(props) {
                   <i class="fas fa-user-tie mr-2"></i> device 5{" "}
                 </Button>
               </div>
-            </Card.Body>
-          </Card>
-          <Card style={{ width: "50rem" }} className="mb-2">
-            <Card.Body>
               <Button className=" btn-lg" variant="info">
                 <i class="fas fa-mobile-alt mr-2"></i>Low attention & focused of
                 all device{" "}

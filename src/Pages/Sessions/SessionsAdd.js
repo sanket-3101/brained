@@ -81,7 +81,7 @@ function SessionsAdd(props) {
   };
   return (
     <>
-      <div style={{ display: "flex" }}>
+      <div className="mainContainer">
         <div>
           {" "}
           <Dashboard />
@@ -93,7 +93,7 @@ function SessionsAdd(props) {
           </Button>
 
           <>
-            <Card style={{ width: "65rem" }} className="">
+            <Card style={{ width: "78vw" }} className="rightCard">
               <div class="row" className="d-flex ">
                 <div class="col-md-6">
                   <h5

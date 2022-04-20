@@ -71,7 +71,7 @@ export const data = {
 function Report(props) {
   const { sessionDetails } = useSelector((state) => state.session);
   const [graphData, setGraphData] = useState(null);
-  const [sessionList, setSessionList] = useState([])
+  const [sessionList, setSessionList] = useState([]);
   useEffect(() => {
     getReportsData();
   }, []);
@@ -88,10 +88,10 @@ function Report(props) {
       NotificationManager.error("No Current Session");
     }
   };
-  const handleSessionChange = () => {}
+  const handleSessionChange = () => {};
   return (
     <>
-      <div style={{ display: "flex" }}>
+      <div className="mainContainer">
         <div>
           {" "}
           <Dashboard />
@@ -101,23 +101,22 @@ function Report(props) {
           <Button className="my-3 btn-lg" variant="info">
             Report
           </Button>
-          <div>
-            <Form.Label>Select Session</Form.Label>
-          </div>
-          <div className="w-100 mt-10">
-            <Form.Select
-              onChange={(e) => handleSessionChange(e)}
-              aria-label="Default select example"
-            >
-              <option value=" ">Select Session</option>
-              {/* {sessionList &&
+          <div style={{width: '78vw'}} className="rightCard">
+            <div className="w-100 mt-10">
+              <Form.Select
+                onChange={(e) => handleSessionChange(e)}
+                aria-label="Default select example"
+              >
+                <option value=" ">Select Session</option>
+                {/* {sessionList &&
                 sessionList.map((item) => (
                   <option value={item.subject_id}>{item.name}</option>
                 ))} */}
-            </Form.Select>
-          </div>
-          <div style={{ height: "200px" }}>
-            {graphData ? <Bar options={options} data={graphData} /> : ""}
+              </Form.Select>
+            </div>
+            <div>
+              {graphData ? <Bar options={options} data={graphData} /> : ""}
+            </div>
           </div>
         </Container>
       </div>

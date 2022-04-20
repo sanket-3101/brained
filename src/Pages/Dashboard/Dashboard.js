@@ -23,7 +23,7 @@ function Dashboardpage(props) {
   };
 
   return (
-    <div style={{ display: "flex" }}>
+    <div className="mainContainer">
       <div>
         {" "}
         <Dashboard />
@@ -33,11 +33,15 @@ function Dashboardpage(props) {
       {!loader && device ? (
         <>
           <Container className="dashboardpart">
-            <Header/>
+            <Header />
             <Button className="my-3 btn-lg" variant="info">
               Connected devices{" "}
             </Button>
-            <Card style={{ width: "50rem" }} className="mb-2 cardWIdth">
+
+            <Card
+              style={{ width: "78vw" }}
+              className="mb-2 cardWIdth rightCard"
+            >
               <Card.Body>
                 <Button className=" btn-lg" variant="success">
                   <i class="fas fa-mobile-alt mr-2"></i>Connected{" "}
@@ -59,10 +63,6 @@ function Dashboardpage(props) {
                       </>
                     ))}
                 </div>
-              </Card.Body>
-            </Card>
-            <Card style={{ width: "50rem" }} className="mb-2 cardWIdth">
-              <Card.Body>
                 <Button className=" btn-lg" variant="danger">
                   {" "}
                   <i class="fas fa-mobile-alt mr-2"></i>Disconnected{" "}
@@ -84,10 +84,6 @@ function Dashboardpage(props) {
                       </>
                     ))}
                 </div>
-              </Card.Body>
-            </Card>
-            <Card style={{ width: "50rem" }} className="mb-2 cardWIdth">
-              <Card.Body>
                 <Button className=" btn-lg" variant="warning">
                   {" "}
                   <i class="fas fa-mobile-alt mr-2"></i>Check fit{" "}

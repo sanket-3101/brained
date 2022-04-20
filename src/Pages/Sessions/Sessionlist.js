@@ -5,8 +5,8 @@ function Sessionslist(props) {
   const { data } = props;
   console.log("data ===>", props)
   return (
-    <>
-      <h5 className="m-5">Please select Subjects:</h5>
+    <div className="rightCard">
+      <h5 className="m-5">Please Select Subjects:</h5>
       <div class="row" className="d-flex text-center">
         {data.map((item) => {
           return (
@@ -26,7 +26,7 @@ function Sessionslist(props) {
           );
         })}
       </div>
-      <div className="text-center m-3">
+      {/* <div className="text-center m-3">
         <Button
           className=""
           variant="primary"
@@ -35,8 +35,8 @@ function Sessionslist(props) {
         >
           Continue{" "}
         </Button>
-      </div>
-    </>
+      </div> */}
+    </div>
   );
 }
 export default Sessionslist;
