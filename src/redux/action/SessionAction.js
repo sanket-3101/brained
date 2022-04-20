@@ -5,8 +5,9 @@ import {
   POST_SESSION_ERROR,
   PUT_SESSION_SUCCESS,
   PUT_SESSION_ERROR,
+  GET_ALL_SESSION_SUCCESS
 } from "./types";
-import { postSesssion, putSession } from "../../Constant/enpoint";
+import { postSesssion, putSession ,getSesssion} from "../../Constant/enpoint";
 import { NotificationManager } from "react-notifications";
 export const setSessionLoader = () => {
   return (dispatch) =>
@@ -14,7 +15,26 @@ export const setSessionLoader = () => {
       type: POST_SESSION_LOADER,
     });
 };
-
+export const getAllSessions = () => {
+  return (dispatch) => {
+    axios
+      .get(getSesssion)
+      .then((res) => {
+        console.log('res ==>', res)
+        dispatch({
+          type: GET_ALL_SESSION_SUCCESS,
+          payload: res.data.data,
+        });
+      })
+      .catch((err) => {
+        console.log('res ==>', err)
+        dispatch({
+          type: POST_SESSION_ERROR,
+          payload: err,
+        });
+      });
+  };
+};
 export const postSession = (data, navigate) => {
   return (dispatch) => {
     axios

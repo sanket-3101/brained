@@ -20,9 +20,11 @@ import {
 import { Bar } from "react-chartjs-2";
 import Header from "../../Component/Headerfile";
 import axios from "axios";
-import { getReportData } from "../../Constant/enpoint";
+import {getAllSessions} from '../../redux/action/SessionAction'
+import { getReportData, } from "../../Constant/enpoint";
 import { useSelector, useDispatch } from "react-redux";
 import { NotificationManager } from "react-notifications";
+import ErrorHandler from "../../Component/helper/ErrorHandler";
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -69,26 +71,25 @@ export const data = {
 };
 
 function Report(props) {
-  const { sessionDetails } = useSelector((state) => state.session);
+  const { sessionDetails ,sessionsList} = useSelector((state) => state.session);
   const [graphData, setGraphData] = useState(null);
   const [sessionList, setSessionList] = useState([]);
+  const dispatch = useDispatch();
+
   useEffect(() => {
-    getReportsData();
+   dispatch( getAllSessions());
   }, []);
 
-  const getReportsData = () => {
-    if (sessionDetails) {
+  const getReportsData = (e) => {
       axios
-        .get(getReportData(1))
+        .get(getReportData(e.target.value))
         .then((res) => {
           setGraphData(res.data.data);
         })
-        .catch((err) => console.log(err));
-    } else {
-      NotificationManager.error("No Current Session");
-    }
+        .catch((err) => ErrorHandler(err));
+   
   };
-  const handleSessionChange = () => {};
+
   return (
     <>
       <div className="mainContainer">
@@ -103,16 +104,17 @@ function Report(props) {
           </Button>
           <div style={{width: '78vw'}} className="rightCard">
             <div className="w-100 mt-10">
-              <Form.Select
-                onChange={(e) => handleSessionChange(e)}
+            <Form.Control
+          as="select"
+                onChange={(e) => getReportsData(e)}
                 aria-label="Default select example"
               >
-                <option value=" ">Select Session</option>
-                {/* {sessionList &&
-                sessionList.map((item) => (
-                  <option value={item.subject_id}>{item.name}</option>
-                ))} */}
-              </Form.Select>
+                <option value=" ">Select Session</option>{}
+                 {sessionsList &&
+                sessionsList.map((item) => (
+                  <option value={item.id}>{item.name}</option>
+                ))} 
+              </Form.Control>
             </div>
             <div>
               {graphData ? <Bar options={options} data={graphData} /> : ""}
