@@ -74,7 +74,7 @@ function SessionsAdd(props) {
   };
   const stopSession = () => {
     if (sessionDetails) {
-      dispatch(removeSession(sessionDetails.id));
+      dispatch(removeSession(sessionDetails.session_id));
     } else {
       NotificationManager.error("No Session Available!!");
     }

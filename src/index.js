@@ -13,19 +13,19 @@ import { createStore, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 import { Provider } from "react-redux";
 import { NotificationContainer } from "react-notifications";
-import { socket, SocketContext } from "./context/socket";
+// import { socket, SocketContext } from "./context/socket";
 import rootReducer from "../src/redux/reducer/index";
 const store = createStore(rootReducer, applyMiddleware(thunk));
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <SocketContext.Provider value={socket}>
+      {/* <SocketContext.Provider value={socket}> */}
         <Provider store={store}>
           <AppRoutes />
           <NotificationContainer />
         </Provider>
-      </SocketContext.Provider>
+      {/* </SocketContext.Provider> */}
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")
