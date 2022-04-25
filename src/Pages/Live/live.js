@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Button, Container, Card } from "react-bootstrap";
+import { Button, Container, Card, OverlayTrigger, Popover } from "react-bootstrap";
 import Header from "../../Component/Headerfile";
 import Dashboard from "../../Component/Sidebar/index";
 import { useSelector, useDispatch } from "react-redux";
@@ -31,7 +31,15 @@ function Dashboardpage(props) {
       [name]: value,
     });
   };
- 
+  const popover = (
+    <Popover id="popover-basic">
+      <Popover.Body>
+        <Button className="popOverBtn" variant="primary">Pause</Button>{' '}
+        <Button className="popOverBtn" variant="danger">Stop</Button>{' '}
+        <Button className="popOverBtn" variant="success">Start</Button>{' '}
+      </Popover.Body>
+    </Popover>
+  );
   return (
     <>
       <div className="mainContainer">
@@ -46,9 +54,14 @@ function Dashboardpage(props) {
           </Button>
 
           <Card style={{ width: "78vw" }} className="mb-2 rightCard">
-            {!sessionDetails ? (
+            {/* {!sessionDetails ? (
               <p>No Session Created....</p>
             ) : liveDataLoader ? (
+              <p>Loading....</p>
+            ) : ( */}
+            {false ? (
+              <p>No Session Created....</p>
+            ) : false ? (
               <p>Loading....</p>
             ) : (
               <>
@@ -163,7 +176,13 @@ function Dashboardpage(props) {
                       </div>
                     </>
                   ) : null}
+                  <div className="popOver">
+                    <OverlayTrigger trigger="click" placement="left" overlay={popover}>
+                      <div className="cricleText"><h1>+</h1></div>
+                    </OverlayTrigger>
+                  </div>
                 </Card.Body>
+
               </>
             )}
           </Card>

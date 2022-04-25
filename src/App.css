@@ -8,10 +8,12 @@
   pointer-events: none;
   object-fit: cover;
 }
-.H1Border{
+
+.H1Border {
   border-bottom: 4px solid blue;
 
 }
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -37,15 +39,19 @@
   color: #fff;
   width: auto;
 }
-.offcanvas.sidebar  .offcanvas-body{
+
+.offcanvas.sidebar .offcanvas-body {
   padding: 0;
 }
-.offcanvas.sidebar  .nav .nav-link{
+
+.offcanvas.sidebar .nav .nav-link {
   font-weight: 600;
   padding: 0.8rem 0.5rem;
-  font-size: 1.2rem;    color: #4eabe0;
+  font-size: 1.2rem;
+  color: #4eabe0;
 }
-.offcanvas.sidebar  .nav .nav-link i{
+
+.offcanvas.sidebar .nav .nav-link i {
   background: #1f6590;
   width: 30px;
   height: 30px;
@@ -58,24 +64,51 @@
   font-size: 14px;
 }
 
-.offcanvas-backdrop{
+.offcanvas-backdrop {
   width: 100% !important;
   height: 100% !important;
 }
-.cardWIdth{
+
+.cardWIdth {
   width: 50rem;
 }
+
 @media only screen and (max-width: 768px) {
   .cardWIdth {
     width: 35rem !important;
   }
 }
+
 .mainContainer {
   display: flex;
   height: 100vh;
   overflow: hidden;
 }
+
 .rightCard {
   height: calc(100vh - 32vh);
   overflow: scroll;
+}
+
+.popOver {
+  position: absolute;
+  right: 5%;
+  bottom: 5%;
+}
+
+.cricleText {
+  background: #0dcaf0 !important;
+  font-size: 1rem;
+  height: 40px;
+  width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 40 /2;
+  border-radius: 20px;
+  color: white;
+}
+.popOverBtn {
+  display: block;
+  width: 100%;
 }
