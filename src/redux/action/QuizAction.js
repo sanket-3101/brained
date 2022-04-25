@@ -8,15 +8,14 @@ export const setLoader = () => {
     });
 };
 
-
-export const getQuizDetails = (id) => {
+export const getQuizDetails = () => {
   return (dispatch) => {
     axios
-      .get(getQuiz(id))
+      .get(getQuiz)
       .then((res) => {
         dispatch({
           type: GET_QUIZ_SUCCESS,
-          payload: res,
+          payload: res.data.data,
         });
       })
       .catch((err) => {

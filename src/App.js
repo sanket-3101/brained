@@ -12,6 +12,7 @@ import io from "socket.io-client";
 import { NotificationManager } from "react-notifications";
 import { useSelector, useDispatch } from "react-redux";
 import { setLiveData } from "./redux/action/SessionAction";
+import Quiz from "./Pages/Quiz/quiz";
 function AppRoutes() {
   const { sessionDetails, livedata } = useSelector((state) => state.session);
   const dispatch = useDispatch();
@@ -77,6 +78,7 @@ function AppRoutes() {
       <Route path="/sessions" element={<Sessions />} />
       <Route path="/sessions/:id" element={<SessionsAdd />} />
       <Route path="/live" element={<Live />} />
+      <Route path="/quiz" element={<Quiz />} />
       <Route path="/report" element={<Report />} />
     </Routes>
   );

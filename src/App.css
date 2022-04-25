@@ -112,3 +112,7 @@
   display: block;
   width: 100%;
 }
+#popover-basic{
+  width: 150px;
+  border-radius: 18px;
+}

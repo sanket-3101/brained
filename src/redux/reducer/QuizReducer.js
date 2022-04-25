@@ -22,7 +22,7 @@ export default (state = INITIAL_STATE, action) => {
         ...state,
         loader: false,
         error: null,
-        quizDetails: action.paylaod,
+        quizDetails: action.payload,
       };
     case GET_QUIZ_ERROR:
       return {
