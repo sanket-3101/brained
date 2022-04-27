@@ -29,3 +29,4 @@ export const deleteSubjectById = (id) => `${BASE_URL}subject/${id}`;
 //report
 export const getReportData = (id) =>
   `${BASE_URL}getSessionReport?session_id=${id}`;
+export const quizPost = `${BASE_URL}submitQuiz`

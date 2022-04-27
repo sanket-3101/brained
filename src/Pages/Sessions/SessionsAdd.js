@@ -173,9 +173,9 @@ function SessionsAdd(props) {
                 >
                   <i class="fas fa-user-tie mr-2 "></i> Start{" "}
                 </Button>
-                <Button className="" variant="primary">
+                {/* <Button className="" variant="primary">
                   <i class="fas fa-user-tie mr-2 "></i> Pause{" "}
-                </Button>
+                </Button> */}
                 <Button onClick={stopSession} className="" variant="primary">
                   <i class="fas fa-user-tie mr-2 "></i> Stop{" "}
                 </Button>

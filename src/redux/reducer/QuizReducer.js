@@ -6,11 +6,12 @@ import {
 
 const INITIAL_STATE = {
   loader: false,
-  quizDetails: null,
+  quizDetails: [],
   error: null,
 };
 
 export default (state = INITIAL_STATE, action) => {
+
   switch (action.type) {
     case GET_QUIZ_LOADER:
       return {
@@ -18,6 +19,7 @@ export default (state = INITIAL_STATE, action) => {
         loader: true,
       };
     case GET_QUIZ_SUCCESS:
+      console.log('ACTION sUCESS ===>', action)
       return {
         ...state,
         loader: false,
@@ -25,6 +27,7 @@ export default (state = INITIAL_STATE, action) => {
         quizDetails: action.payload,
       };
     case GET_QUIZ_ERROR:
+      console.log('ACTION ERROPR ===>', action)
       return {
         ...state,
         loader: false,

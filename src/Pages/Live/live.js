@@ -3,7 +3,8 @@ import { Button, Container, Card, OverlayTrigger, Popover } from "react-bootstra
 import Header from "../../Component/Headerfile";
 import Dashboard from "../../Component/Sidebar/index";
 import { useSelector, useDispatch } from "react-redux";
-
+import { NotificationManager } from "react-notifications";
+import { removeSession } from "../../redux/action/SessionAction";
 function Dashboardpage(props) {
   const { sessionDetails, livedata, liveDataLoader } = useSelector(
     (state) => state.session
@@ -31,15 +32,23 @@ function Dashboardpage(props) {
       [name]: value,
     });
   };
+  const stopSession = () => {
+    if (sessionDetails) {
+      dispatch(removeSession(sessionDetails.session_id));
+    } else {
+      NotificationManager.error("No Session Available!!");
+    }
+  };
   const popover = (
     <Popover id="popover-basic">
       <Popover.Body>
-        <Button className="popOverBtn" variant="primary">Pause</Button>{' '}
-        <Button className="popOverBtn" variant="danger">Stop</Button>{' '}
-        <Button className="popOverBtn" variant="success">Start</Button>{' '}
+        {/* <Button className="popOverBtn" variant="primary">Pause</Button>{' '} */}
+        <Button onClick={stopSession} className="popOverBtn" variant="danger">Stop</Button>{' '}
+        {/* <Button className="popOverBtn" variant="success">Start</Button>{' '} */}
       </Popover.Body>
     </Popover>
   );
+
   return (
     <>
       <div className="mainContainer">
@@ -68,7 +77,7 @@ function Dashboardpage(props) {
                 <Card.Body>
                   <div className="d-flex">
                     <h2>
-                      Select a <span style={{ color: "blue" }}>critearea</span>{" "}
+                      Select a <span style={{ color: "blue" }}>Criteria</span>{" "}
                     </h2>
                     <div class="custom-control custom-checkbox m-3">
                       <input
