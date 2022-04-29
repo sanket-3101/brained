@@ -90,7 +90,7 @@ function Dashboardpage(props) {
                 </Button>
                 <div>
                   {device
-                    .filter((item) => item.status == 1)
+                    .filter((item) => item.status == 2)
                     .map((data) => (
                       <>
                         <Button

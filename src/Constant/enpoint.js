@@ -31,3 +31,5 @@ export const getReportData = (id) =>
   `${BASE_URL}getSessionReport?session_id=${id}`;
 export const quizPost = `${BASE_URL}submitQuiz`
 export const overall = `${BASE_URL}getOverallSessionReport`;
+export const newReportData = (id) =>
+  `${BASE_URL}getSimpleSessionReport?session_id=${id}`;

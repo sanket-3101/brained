@@ -74,7 +74,7 @@ export const removeSession = (id) => {
           type: SET_LIVE_DATA,
           payload: []
         });
-        NotificationManager.error("Session Stop Successfully !!!", true);
+        NotificationManager.success("Session Stop Successfully !!!");
       })
       .catch((err) => {
         dispatch({

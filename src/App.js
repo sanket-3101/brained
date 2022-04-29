@@ -11,10 +11,12 @@ import Report from "./Pages/Reports/report";
 import io from "socket.io-client";
 import { NotificationManager } from "react-notifications";
 import { useSelector, useDispatch } from "react-redux";
+import { setBlinkData } from "./redux/action/BlinkAction";
 import { setLiveData } from "./redux/action/SessionAction";
 import Quiz from "./Pages/Quiz/quiz";
 import OverAll from './Pages/OverAll'
 import Blink from "./Pages/Blink";
+import ReportNew from "./Pages/ReportNew";
 function AppRoutes() {
   const { sessionDetails, livedata } = useSelector((state) => state.session);
   const dispatch = useDispatch();
@@ -38,8 +40,8 @@ function AppRoutes() {
     dispatch(setLiveData([...temp]));
     // setLiveData([...temp]);
   };
-  const setBlinkData = (data) => {
-    console.log('Datata ==>', data)
+  const handleBlinkData = (data) => {
+    dispatch(setBlinkData(data));
   }
 
   useEffect(() => {
@@ -65,7 +67,8 @@ function AppRoutes() {
         setNewData(focusval);
       });
       socket.on('blinkval', function(blinkval) {
-        console.log("Blink Socket ===>",blinkval);
+
+        handleBlinkData(blinkval)
       });
       return () => {
         socket.on("disconnect", () => {
@@ -87,7 +90,8 @@ function AppRoutes() {
       <Route path="/sessions/:id" element={<SessionsAdd />} />
       <Route path="/live" element={<Live />} />
       <Route path="/quiz" element={<Quiz />} />
-      <Route path="/report" element={<Report />} />
+      <Route path="/report" element={<ReportNew  />} />
+      <Route path="/daily-report" element={<Report />} />
       <Route path="/overall" element={<OverAll />} />
       <Route path="/blink" element={<Blink />} />
     </Routes>

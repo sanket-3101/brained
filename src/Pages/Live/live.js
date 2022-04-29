@@ -126,7 +126,7 @@ function Dashboardpage(props) {
                     <>
                       <Button className="btn-lg btn-new" variant="info">
                         <i class="fas fa-mobile-alt mr-2"></i>Low attention &
-                        focused of all device{" "}
+                        focus of all device{" "}
                       </Button>
                       <div>
                         {low.map((item) => (
@@ -147,7 +147,7 @@ function Dashboardpage(props) {
                     <>
                       <Button className=" btn-lg btn-new" variant="info">
                         <i class="fas fa-mobile-alt mr-2"></i>Average attention
-                        & focused of all device{" "}
+                        & focus of all device{" "}
                       </Button>
                       <div>
                         {average.map((item) => (
@@ -167,7 +167,7 @@ function Dashboardpage(props) {
                     <>
                       <Button className="btn-lg btn-new" variant="info">
                         <i class="fas fa-mobile-alt mr-2"></i>High attention &
-                        focused of all device{" "}
+                        focus of all device{" "}
                       </Button>
                       <div>
                         {high.map((item) => (

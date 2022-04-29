@@ -109,12 +109,13 @@ function SessionsAdd(props) {
                   <div className="w-100 mt-10">
                     <Form.Select
                       onChange={handleChapterChange}
+                      value={selectedChapter}
                       aria-label="Default select example"
                     >
                       <option value=" ">Select chapter</option>
                       {chapter &&
                         chapter.map((item) => (
-                          <option value={item.subject_id}>{item.name}</option>
+                          <option value={item.id}>{item.name}</option>
                         ))}
                     </Form.Select>
                   </div>
