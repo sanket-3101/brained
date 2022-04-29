@@ -63,14 +63,9 @@ function Dashboardpage(props) {
           </Button>
 
           <Card style={{ width: "78vw" }} className="mb-2 rightCard">
-            {/* {!sessionDetails ? (
+            {!sessionDetails ? (
               <p>No Session Created....</p>
             ) : liveDataLoader ? (
-              <p>Loading....</p>
-            ) : ( */}
-            {false ? (
-              <p>No Session Created....</p>
-            ) : false ? (
               <p>Loading....</p>
             ) : (
               <>

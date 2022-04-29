@@ -131,7 +131,7 @@ export default function Dashboard(props) {
       <div
         style={{
           height: "100%",
-          backgroundColor: "darkblue",
+          backgroundColor: "#0E3458",
           width: "18vw",
           borderRadius: "15px",
           alignItems: "center",
@@ -185,8 +185,9 @@ export default function Dashboard(props) {
         {getList("Sessions", "", 2, "/sessions", "fas fa-hourglass-start")}
         {getList("Live", "", 3, "/live", "fas fa-broadcast-tower")}
         {getList("Report", "", 4, "/report", "fas fa-chart-line")}
-        {getList("Test Report", "", 5, "/testreport", "fas fa-chart-pie")}
+        {getList("Over All", "", 5, "/overall", "fas fa-chart-pie")}
         {getList("Quiz", "", 5, "/quiz", "fas fa-chart-pie")}
+        {getList("Blink", "", 5, "/blink", "fas fa-chart-pie")}
       </div>
     </>
   );

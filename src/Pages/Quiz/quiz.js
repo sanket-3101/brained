@@ -39,9 +39,9 @@ function Quiz(props) {
     setQuestionAnswer(temp);
   };
   const onSubmit = () => {
-    if (sessionDetails) {
+    if (true) {
       const data = {
-        session_id: sessionDetails.session_id,
+        // session_id: sessionDetails.session_id,
         device_id: deviceId,
         que_ans: questionAnswer.map((item) => {
           return {
