@@ -36,7 +36,7 @@ function Sessions(props) {
         </div>
         <Container>
           <Header />
-          <Button className="my-3 btn-lg" variant="info">
+          <Button className="my-3 btn-lg btn-new" variant="info">
             Sessions{" "}
           </Button>
 

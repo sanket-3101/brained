@@ -39,9 +39,9 @@ function Quiz(props) {
     setQuestionAnswer(temp);
   };
   const onSubmit = () => {
-    if (sessionDetails) {
+    if (true) {
       const data = {
-        session_id: sessionDetails.session_id,
+        // session_id: sessionDetails.session_id,
         device_id: deviceId,
         que_ans: questionAnswer.map((item) => {
           return {
@@ -53,7 +53,7 @@ function Quiz(props) {
       axios
         .post(quizPost, data)
         .then((res) => {
-          NotificationManager.success("Quiz Submitted!!");
+          NotificationManager.success("Quiz Submitted!!", true);
           setDeviseId("");
         })
         .catch((err) => {

@@ -58,19 +58,14 @@ function Dashboardpage(props) {
         </div>
         <Container className="dashboardpart">
           <Header />
-          <Button className="my-3 btn-lg" variant="info">
+          <Button className="my-3 btn-lg btn-new" variant="info">
             Live
           </Button>
 
           <Card style={{ width: "78vw" }} className="mb-2 rightCard">
-            {/* {!sessionDetails ? (
+            {!sessionDetails ? (
               <p>No Session Created....</p>
             ) : liveDataLoader ? (
-              <p>Loading....</p>
-            ) : ( */}
-            {false ? (
-              <p>No Session Created....</p>
-            ) : false ? (
               <p>Loading....</p>
             ) : (
               <>
@@ -129,7 +124,7 @@ function Dashboardpage(props) {
                   </div>
                   {showView.low ? (
                     <>
-                      <Button className=" btn-lg" variant="info">
+                      <Button className="btn-lg btn-new" variant="info">
                         <i class="fas fa-mobile-alt mr-2"></i>Low attention &
                         focused of all device{" "}
                       </Button>
@@ -150,7 +145,7 @@ function Dashboardpage(props) {
 
                   {showView.average ? (
                     <>
-                      <Button className=" btn-lg" variant="info">
+                      <Button className=" btn-lg btn-new" variant="info">
                         <i class="fas fa-mobile-alt mr-2"></i>Average attention
                         & focused of all device{" "}
                       </Button>
@@ -170,7 +165,7 @@ function Dashboardpage(props) {
                   ) : null}
                   {showView.high ? (
                     <>
-                      <Button className=" btn-lg" variant="info">
+                      <Button className="btn-lg btn-new" variant="info">
                         <i class="fas fa-mobile-alt mr-2"></i>High attention &
                         focused of all device{" "}
                       </Button>
