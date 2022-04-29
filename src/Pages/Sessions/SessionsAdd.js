@@ -50,9 +50,9 @@ function SessionsAdd(props) {
   const handleBack = () => {
     navigate(`/sessions`);
   };
-  const hanldeSessionStart = async() => {
+  const hanldeSessionStart = async () => {
     let deviceid = [];
-  await  device
+    await device
       .filter((item) => item.status == 1)
       .map((item) => deviceid.push(item.device_id));
     if (topic_name == "") {
@@ -60,7 +60,9 @@ function SessionsAdd(props) {
     } else if (selectedChapter == "") {
       NotificationManager.error("Please Select Chapter");
     } else if (deviceid.length < 1) {
-      NotificationManager.error("Cannot find device id redirecting to dashboard and try again !");
+      NotificationManager.error(
+        "Cannot find device id redirecting to dashboard and try again !"
+      );
       navigate("/dashboardpage");
     } else {
       const data = {
@@ -156,8 +158,16 @@ function SessionsAdd(props) {
                   <Card style={{ width: "13rem" }}>
                     <Card.Img
                       variant="top"
-                      style={{height: '80%'}}
-                      src={subjectDetails?.name.toLowerCase() === 'science' ? 'https://img.freepik.com/free-vector/hand-drawn-science-education-background_23-2148499325.jpg?size=626&ext=jpg ' : subjectDetails?.name.toLowerCase() === 'ai' ? 'https://image.shutterstock.com/image-illustration/cybernetic-brain-electronic-chip-form-260nw-540433660.jpg' : "https://source.unsplash.com/user/c_v_r/100x100"}
+                      style={{ height: "80%" }}
+                      src={
+                        subjectDetails?.name.toLowerCase() === "maths"
+                          ? "https://sjcit.ac.in/wp-content/uploads/2022/03/mathematics-png.jpg"
+                          : subjectDetails?.name.toLowerCase() === "science"
+                          ? "https://img.freepik.com/free-vector/hand-drawn-science-education-background_23-2148499325.jpg?size=626&ext=jpg "
+                          : subjectDetails?.name.toLowerCase() === "ai"
+                          ? "https://image.shutterstock.com/image-illustration/cybernetic-brain-electronic-chip-form-260nw-540433660.jpg"
+                          : "https://source.unsplash.com/user/c_v_r/100x100"
+                      }
                     />
                     <Card.Body className="bg-info text-center">
                       <Card.Title>
@@ -167,7 +177,10 @@ function SessionsAdd(props) {
                   </Card>
                 </div>
               </div>
-              <div style={{ marginRight: '16%' }} className="d-flex justify-content-end mt-3  mb-5">
+              <div
+                style={{ marginRight: "16%" }}
+                className="d-flex justify-content-end mt-3  mb-5"
+              >
                 <Button
                   onClick={hanldeSessionStart}
                   className=""
