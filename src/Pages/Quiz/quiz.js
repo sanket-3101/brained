@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Button, Container, Card } from "react-bootstrap";
+import { Button, Container, Card, Form } from "react-bootstrap";
 import Header from "../../Component/Headerfile";
 import Dashboard from "../../Component/Sidebar/index";
 import { useSelector, useDispatch } from "react-redux";
@@ -8,57 +8,63 @@ import { useState } from "react";
 import axios from "axios";
 import { quizPost } from "../../Constant/enpoint";
 import { NotificationManager } from "react-notifications";
+import { getAllDevice } from "../../redux/action/DeviceAction";
 function Quiz(props) {
   const { quizDetails } = useSelector((state) => state.quiz);
+  const { device, error } = useSelector((state) => state.device);
+
   const dispatch = useDispatch();
+  const [deviceId, setDeviseId] = useState("");
 
   const [questionAnswer, setQuestionAnswer] = useState([]);
   useEffect(() => {
     dispatch(getQuizDetails());
+    dispatch(getAllDevice());
   }, []);
   const { loader, sessionDetails } = useSelector((state) => state.session);
   const onSelect = (option) => {
-    const {
-      id,
-      quiz_question_id
-    } = option
-    let temp = []
-    let found = false
-    temp = questionAnswer.map(item => {
+    const { id, quiz_question_id } = option;
+    let temp = [];
+    let found = false;
+    temp = questionAnswer.map((item) => {
       if (item.quiz_question_id === quiz_question_id) {
-        found = true
-        return option
+        found = true;
+        return option;
       }
-      return item
-    })
+      return item;
+    });
     if (!found) {
-      temp.push(option)
+      temp.push(option);
     }
-    setQuestionAnswer(temp)
-  }
+    setQuestionAnswer(temp);
+  };
   const onSubmit = () => {
-    console.log('Details ===>', sessionDetails)
     if (sessionDetails) {
       const data = {
         session_id: sessionDetails.session_id,
-        device_id: "",
+        device_id: deviceId,
         que_ans: questionAnswer.map((item) => {
           return {
             question_id: item.quiz_question_id,
-            answer_id: item.id
-          }
+            answer_id: item.id,
+          };
+        }),
+      };
+      axios
+        .post(quizPost, data)
+        .then((res) => {
+          NotificationManager.success("Quiz Submitted!!", true);
+          setDeviseId("");
         })
-      }
-      console.log(data)
-      axios.post(quizPost, data).then((res) => {
-        NotificationManager.error("Quiz Submitted!!", true);
-      }).catch((err) => NotificationManager.error("Quiz Failed!!"))
+        .catch((err) => {
+          NotificationManager.error("Quiz Failed!!");
+          setDeviseId("");
+        });
     } else {
       NotificationManager.error("No Session Available!!");
+      setDeviseId("");
     }
-
-  }
-  console.log(quizDetails)
+  };
   return (
     <>
       <div className="mainContainer">
@@ -75,6 +81,22 @@ function Quiz(props) {
           <Card style={{ width: "78vw" }} className="mb-2 rightCard">
             <>
               <Card.Body>
+                <div className="w-100 mt-10">
+                  <Form.Control
+                    as="select"
+                    onChange={(e) => {
+                      setDeviseId(e.target.value);
+                    }}
+                    aria-label="Default select example"
+                  >
+                    <option value=" ">Select Device</option>
+                    {}
+                    {device &&
+                      device.map((item) => (
+                        <option value={item.id}>{item.name}</option>
+                      ))}
+                  </Form.Control>
+                </div>
                 {quizDetails &&
                   quizDetails?.map((item) => {
                     return (

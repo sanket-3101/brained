@@ -3,7 +3,6 @@ import { Button, Card } from "react-bootstrap";
 
 function Sessionslist(props) {
   const { data } = props;
-  console.log("data ===>", props)
   return (
     <div className="rightCard">
       <h5 className="m-5">Please Select Subjects:</h5>

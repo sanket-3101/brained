@@ -27,7 +27,6 @@ function Sessions(props) {
   const onClick = (data) => {
     navigate(`/sessions/${data.id}`);
   };
-  console.log("subject ===>", subject);
   return (
     <>
       <div className="mainContainer">

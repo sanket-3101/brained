@@ -29,14 +29,12 @@ export const getAllSessions = () => {
     axios
       .get(getSesssion)
       .then((res) => {
-        console.log('res ==>', res)
         dispatch({
           type: GET_ALL_SESSION_SUCCESS,
           payload: res.data.data,
         });
       })
       .catch((err) => {
-        console.log('res ==>', err)
         dispatch({
           type: POST_SESSION_ERROR,
           payload: err,
@@ -49,7 +47,6 @@ export const postSession = (data, navigate) => {
     axios
       .post(postSesssion, data)
       .then((res) => {
-        console.log("response ==>", res);
         dispatch({
           type: POST_SESSION_SUCCESS,
           payload: res.data.data,
