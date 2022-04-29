@@ -135,7 +135,7 @@ export default function Dashboard(props) {
           width: "18vw",
           borderRadius: "15px",
           alignItems: "center",
-          overflow: 'scroll'
+          overflow: "scroll",
         }}
       >
         <div
@@ -150,7 +150,7 @@ export default function Dashboard(props) {
           }}
         >
           {/* <img src={checkfit} style={{height: '20px', marginRight: '20px'}} /> */}
-          <div>BRAIN ED</div>
+          <div>Name Shyam Parmar</div>
         </div>
         <div
           style={{
@@ -167,7 +167,8 @@ export default function Dashboard(props) {
         >
           <img
             style={{ height: "50px" }}
-            src="https://www.pngitem.com/pimgs/m/404-4042710_circle-profile-picture-png-transparent-png.png"
+            // src="https://www.pngitem.com/pimgs/m/404-4042710_circle-profile-picture-png-transparent-png.png"
+            src={require("../../../src/assests/images/profile.jpeg")}
           />
         </div>
         <div
@@ -186,7 +187,13 @@ export default function Dashboard(props) {
         {getList("Sessions", "", 2, "/sessions", "fas fa-hourglass-start")}
         {getList("Live", "", 3, "/live", "fas fa-broadcast-tower")}
         {getList("Report", "", 4, "/report", "fas fa-chart-line")}
-        {getList("Details Analysis", "", 5, "/daily-report", "fas fa-chart-line")}
+        {getList(
+          "Details Analysis",
+          "",
+          5,
+          "/daily-report",
+          "fas fa-chart-line"
+        )}
         {getList("Over All", "", 6, "/overall", "fas fa-chart-pie")}
         {getList("Quiz", "", 7, "/quiz", "fas fa-chart-pie")}
         {getList("Blink", "", 8, "/blink", "fas fa-chart-pie")}
