@@ -106,18 +106,20 @@ export default function Dashboard(props) {
           backgroundColor: pathname === routes ? "white" : "",
           width: "100%",
           height: "50px",
-          justifyContent: "center",
+          // justifyContent: "center",
           alignItems: "center",
           marginBottom: "10px",
+          paddingLeft: '20%'
         }}
         onClick={() => handleNavigation(routes)}
       >
-        <i class={image}></i>
+        <i  class={image}></i>
         <div
           style={{
             fontSize: "1.2rem",
             color: "rgb(0, 196, 250)",
             fontWeight: "bold",
+            marginLeft: '10px'
           }}
         >
           {name}
@@ -150,13 +152,13 @@ export default function Dashboard(props) {
           }}
         >
           {/* <img src={checkfit} style={{height: '20px', marginRight: '20px'}} /> */}
-          <div>Name Shyam Parmar</div>
+          <div>Shyam Parmar</div>
         </div>
         <div
           style={{
-            height: "80px",
-            width: "80px",
-            borderRadius: "40px",
+            height: "90px",
+            width: "90px",
+            borderRadius: "45px",
             marginLeft: "35%",
             justifyContent: "center",
             alignItems: "center",
@@ -166,7 +168,7 @@ export default function Dashboard(props) {
           }}
         >
           <img
-            style={{ height: "50px" }}
+            style={{ height: "60px" }}
             // src="https://www.pngitem.com/pimgs/m/404-4042710_circle-profile-picture-png-transparent-png.png"
             src={require("../../../src/assests/images/profile.jpeg")}
           />
@@ -196,7 +198,7 @@ export default function Dashboard(props) {
         )}
         {getList("Over All", "", 6, "/overall", "fas fa-chart-pie")}
         {getList("Quiz", "", 7, "/quiz", "fas fa-chart-pie")}
-        {getList("Blink", "", 8, "/blink", "fas fa-chart-pie")}
+        {getList("Blink Rate", "", 8, "/blink", "fas fa-chart-pie")}
       </div>
     </>
   );
