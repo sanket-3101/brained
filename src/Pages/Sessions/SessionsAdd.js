@@ -50,9 +50,9 @@ function SessionsAdd(props) {
   const handleBack = () => {
     navigate(`/sessions`);
   };
-  const hanldeSessionStart = () => {
+  const hanldeSessionStart = async() => {
     let deviceid = [];
-    device
+  await  device
       .filter((item) => item.status == 1)
       .map((item) => deviceid.push(item.device_id));
     if (topic_name == "") {
