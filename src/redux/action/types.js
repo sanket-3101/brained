@@ -81,3 +81,7 @@ export const POST_TOPIC_ERROR = "POST_TOPIC_ERROR";
 //socket
 export const SET_SOCKET_URL = 'SET_SOCKET_URL';
 export const SET_LIVE_DATA ='SET_LIVE_DATA';
+
+export const SET_BLINK_LOADER = 'SET_BLINK_LOADER';
+export const SET_BLINK_SUCCESS = 'SET_BLINK_SUCCESS';
+export const SET_BLINK_ERROR = 'SET_BLINK_ERROR';
