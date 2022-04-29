@@ -34,7 +34,7 @@ function Dashboardpage(props) {
         <>
           <Container className="dashboardpart">
             <Header />
-            <Button className="my-3 btn-lg" variant="info">
+            <Button className="my-3 btn-lg btn-new" variant="info">
               Connected devices{" "}
             </Button>
 
@@ -43,7 +43,7 @@ function Dashboardpage(props) {
               className="mb-2 cardWIdth rightCard"
             >
               <Card.Body>
-                <Button className=" btn-lg" variant="success">
+                <Button className="btn-lg btn-new" variant="success">
                   <i class="fas fa-mobile-alt mr-2"></i>Connected{" "}
                 </Button>
                 <div>
@@ -63,7 +63,7 @@ function Dashboardpage(props) {
                       </>
                     ))}
                 </div>
-                <Button className=" btn-lg" variant="danger">
+                <Button className="btn-lg btn-new" variant="danger">
                   {" "}
                   <i class="fas fa-mobile-alt mr-2"></i>Disconnected{" "}
                 </Button>
@@ -84,7 +84,7 @@ function Dashboardpage(props) {
                       </>
                     ))}
                 </div>
-                <Button className=" btn-lg" variant="warning">
+                <Button className=" btn-lg btn-new" variant="warning">
                   {" "}
                   <i class="fas fa-mobile-alt mr-2"></i>Check fit{" "}
                 </Button>

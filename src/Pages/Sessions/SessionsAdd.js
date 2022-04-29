@@ -88,7 +88,7 @@ function SessionsAdd(props) {
         </div>{" "}
         <Container>
           <Header />
-          <Button className="my-3 btn-lg" variant="info">
+          <Button className="my-3 btn-lg btn-new" variant="info">
             Sessions{" "}
           </Button>
 
@@ -104,7 +104,7 @@ function SessionsAdd(props) {
                     {"Go Back"}
                   </h5>
                   <div>
-                    <Form.Label>Select Subject</Form.Label>
+                    <Form.Label>Select Chapter</Form.Label>
                   </div>
                   <div className="w-100 mt-10">
                     <Form.Select
@@ -165,7 +165,7 @@ function SessionsAdd(props) {
                   </Card>
                 </div>
               </div>
-              <div className="d-flex justify-content-end mt-3 mr-3 mb-5">
+              <div style={{marginRight: '16%'}} className="d-flex justify-content-end mt-3  mb-5">
                 <Button
                   onClick={hanldeSessionStart}
                   className=""

@@ -51,7 +51,7 @@ function Quiz(props) {
       }
       console.log(data)
       axios.post(quizPost, data).then((res) => {
-        NotificationManager.error("Quiz Submitted!!");
+        NotificationManager.error("Quiz Submitted!!", true);
       }).catch((err) => NotificationManager.error("Quiz Failed!!"))
     } else {
       NotificationManager.error("No Session Available!!");
