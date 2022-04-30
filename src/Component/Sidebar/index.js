@@ -183,7 +183,7 @@ export default function Dashboard(props) {
             fontSize: "1.3rem",
           }}
         >
-          Miss Riya Shah
+          Mr Shyam Shah
         </div>
         {getList("Dashboard", "", 1, "/dashboardpage", "fas fa-home")}
         {getList("Sessions", "", 2, "/sessions", "fas fa-hourglass-start")}
