@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import App from "./Pages/Splash/App";
 import Login from "./Pages/Login/Login";
 import Sessions from "./Pages/Sessions/index";
@@ -14,20 +14,31 @@ import { useSelector, useDispatch } from "react-redux";
 import { setBlinkData } from "./redux/action/BlinkAction";
 import { setLiveData } from "./redux/action/SessionAction";
 import Quiz from "./Pages/Quiz/quiz";
-import OverAll from './Pages/OverAll'
+import OverAll from "./Pages/OverAll";
 import Blink from "./Pages/Blink";
 import ReportNew from "./Pages/ReportNew";
 import axios from "axios";
 import Subject from "./Pages/Subject";
 import Chapter from "./Pages/Chapter";
+import User from "./Pages/User";
 function AppRoutes() {
   const { sessionDetails, livedata } = useSelector((state) => state.session);
   const dispatch = useDispatch();
+  let navigate = useNavigate();
+  useEffect(async () => {
+    checkInitial();
+  }, []);
 
+  const checkInitial = async () => {
+    const details = await localStorage.getItem("userDetails");
 
-  useEffect(() => {
-    axios.defaults.headers.common.id = '1'
-  }, [])
+    if (details) {
+      const new_details = JSON.parse(details);
+      axios.defaults.headers.common.id = new_details.id;
+    } else {
+      navigate("/user");
+    }
+  };
   const setNewData = (focusval) => {
     console.log("focus data ==>", focusval, livedata);
     let temp = livedata;
@@ -49,7 +60,7 @@ function AppRoutes() {
   };
   const handleBlinkData = (data) => {
     dispatch(setBlinkData(data));
-  }
+  };
 
   useEffect(() => {
     console.log("Effect Called ===>", sessionDetails);
@@ -73,9 +84,8 @@ function AppRoutes() {
         // setLoader(false);
         setNewData(focusval);
       });
-      socket.on('blinkval', function(blinkval) {
-
-        handleBlinkData(blinkval)
+      socket.on("blinkval", function (blinkval) {
+        handleBlinkData(blinkval);
       });
       return () => {
         socket.on("disconnect", () => {
@@ -91,13 +101,14 @@ function AppRoutes() {
   return (
     <Routes>
       <Route path="/" element={<App />} />
+      <Route path="/user" element={<User />} />
       <Route path="/login" element={<Login />} />
       <Route path="/dashboardpage" element={<DashboardPage />} />
       <Route path="/sessions" element={<Sessions />} />
       <Route path="/sessions/:id" element={<SessionsAdd />} />
       <Route path="/live" element={<Live />} />
       <Route path="/quiz" element={<Quiz />} />
-      <Route path="/report" element={<ReportNew  />} />
+      <Route path="/report" element={<ReportNew />} />
       <Route path="/daily-report" element={<Report />} />
       <Route path="/overall" element={<OverAll />} />
       <Route path="/blink" element={<Blink />} />

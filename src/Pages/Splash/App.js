@@ -10,7 +10,7 @@ function App() {
 
   useEffect(() => {
     setTimeout(() => {
-      navigate("/login");
+      navigate("/user");
     }, 5000);
   }, []);
   return (

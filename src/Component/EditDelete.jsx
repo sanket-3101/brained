@@ -26,7 +26,7 @@ function EditDeleteSection({
         >
           <option value=" ">Select {placeholder}</option>
           {list.map((item) => (
-            <option value={name === "subject" ? item.id : ""}>
+            <option key={item.id} value={name === "subject" ? item.id : item.id}>
               {item.name}
             </option>
           ))}

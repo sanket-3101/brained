@@ -109,17 +109,17 @@ export default function Dashboard(props) {
           // justifyContent: "center",
           alignItems: "center",
           marginBottom: "10px",
-          paddingLeft: '20%'
+          paddingLeft: "20%",
         }}
         onClick={() => handleNavigation(routes)}
       >
-        <i  class={image}></i>
+        <i class={image}></i>
         <div
           style={{
             fontSize: "1.2rem",
             color: "rgb(0, 196, 250)",
             fontWeight: "bold",
-            marginLeft: '10px'
+            marginLeft: "10px",
           }}
         >
           {name}
@@ -196,8 +196,9 @@ export default function Dashboard(props) {
           "/daily-report",
           "fas fa-chart-line"
         )}
-        {getList("Chapters", "", 9, "/chapter", "fas fa-chart-pie")}
         {getList("Subjects", "", 10, "/subject", "fas fa-chart-pie")}
+        {getList("Chapters", "", 9, "/chapter", "fas fa-chart-pie")}
+
         {/* {getList("Over All", "", 6, "/overall", "fas fa-chart-pie")}
         {getList("Quiz", "", 7, "/quiz", "fas fa-chart-pie")}
         {getList("Blink Rate", "", 8, "/blink", "fas fa-chart-pie")} */}
