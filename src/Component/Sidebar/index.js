@@ -196,9 +196,11 @@ export default function Dashboard(props) {
           "/daily-report",
           "fas fa-chart-line"
         )}
-        {getList("Over All", "", 6, "/overall", "fas fa-chart-pie")}
+        {getList("Chapters", "", 9, "/chapter", "fas fa-chart-pie")}
+        {getList("Subjects", "", 10, "/subject", "fas fa-chart-pie")}
+        {/* {getList("Over All", "", 6, "/overall", "fas fa-chart-pie")}
         {getList("Quiz", "", 7, "/quiz", "fas fa-chart-pie")}
-        {getList("Blink Rate", "", 8, "/blink", "fas fa-chart-pie")}
+        {getList("Blink Rate", "", 8, "/blink", "fas fa-chart-pie")} */}
       </div>
     </>
   );

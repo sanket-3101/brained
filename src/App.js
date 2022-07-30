@@ -17,10 +17,17 @@ import Quiz from "./Pages/Quiz/quiz";
 import OverAll from './Pages/OverAll'
 import Blink from "./Pages/Blink";
 import ReportNew from "./Pages/ReportNew";
+import axios from "axios";
+import Subject from "./Pages/Subject";
+import Chapter from "./Pages/Chapter";
 function AppRoutes() {
   const { sessionDetails, livedata } = useSelector((state) => state.session);
   const dispatch = useDispatch();
 
+
+  useEffect(() => {
+    axios.defaults.headers.common.id = '1'
+  }, [])
   const setNewData = (focusval) => {
     console.log("focus data ==>", focusval, livedata);
     let temp = livedata;
@@ -94,6 +101,8 @@ function AppRoutes() {
       <Route path="/daily-report" element={<Report />} />
       <Route path="/overall" element={<OverAll />} />
       <Route path="/blink" element={<Blink />} />
+      <Route path="/subject" element={<Subject />} />
+      <Route path="/chapter" element={<Chapter />} />
     </Routes>
   );
 }
