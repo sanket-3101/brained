@@ -151,7 +151,7 @@ export default function Dashboard(props) {
           overflow: "scroll",
         }}
       >
-        <div
+        {/* <div
           style={{
             width: "100%",
             display: "flex",
@@ -162,11 +162,10 @@ export default function Dashboard(props) {
             marginTop: "10px",
           }}
         >
-          {/* <img src={checkfit} style={{height: '20px', marginRight: '20px'}} /> */}
           <div>
             {userDetails?.first_name} {userDetails?.last_name}
           </div>
-        </div>
+        </div> */}
         <div
           style={{
             height: "90px",
@@ -182,8 +181,8 @@ export default function Dashboard(props) {
         >
           <img
             style={{ height: "60px" }}
-            // src="https://www.pngitem.com/pimgs/m/404-4042710_circle-profile-picture-png-transparent-png.png"
-            src={require("../../../src/assests/images/profile.jpeg")}
+            src="https://www.pngitem.com/pimgs/m/404-4042710_circle-profile-picture-png-transparent-png.png"
+            // src={require("../../../src/assests/images/profile.jpeg")}
           />
         </div>
         <div
@@ -199,18 +198,20 @@ export default function Dashboard(props) {
           {userDetails?.first_name} {userDetails?.last_name}
         </div>
         {getList("Dashboard", "", 1, "/dashboardpage", "fas fa-home")}
+        {getList("Subjects", "", 10, "/subject", "fas fa-chart-pie")}
+        {getList("Chapters", "", 9, "/chapter", "fas fa-chart-pie")}
         {getList("Sessions", "", 2, "/sessions", "fas fa-hourglass-start")}
         {getList("Live", "", 3, "/live", "fas fa-broadcast-tower")}
-        {getList("Report", "", 4, "/report", "fas fa-chart-line")}
-        {getList(
+        {getList("Reports", "", 4, "/report", "fas fa-chart-line")}
+        {/* {getList(
           "Details Analysis",
           "",
           5,
           "/daily-report",
           "fas fa-chart-line"
-        )}
-        {getList("Subjects", "", 10, "/subject", "fas fa-chart-pie")}
-        {getList("Chapters", "", 9, "/chapter", "fas fa-chart-pie")}
+        )} */}
+
+
 
         {/* {getList("Over All", "", 6, "/overall", "fas fa-chart-pie")}
         {getList("Quiz", "", 7, "/quiz", "fas fa-chart-pie")}

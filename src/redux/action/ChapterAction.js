@@ -18,6 +18,7 @@ import {
   postChapter,
   putChapterById,
   deleteChapterById,
+  getAllChapterById
 } from "../../Constant/enpoint";
 export const setChapterLoader = () => {
   return (dispatch) =>
@@ -39,6 +40,24 @@ export const getAllChapter = () => {
       .catch((err) => {
         dispatch({
           type: GET_ALL_CHAPTER_ERROR,
+          payload: err
+        });
+      });
+  };
+};
+export const  chapterId = (id) => {
+  return (dispatch) => {
+    axios
+      .get(getAllChapterById(id))
+      .then((res) => {
+        dispatch({
+          type: GET_ALL_CHAPTER_SUCCESS,
+          payload: res.data.data
+        });
+      })
+      .catch((err) => {
+        dispatch({
+          type: GET_CHAPTER_ERROR,
           payload: err
         });
       });

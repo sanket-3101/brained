@@ -49,7 +49,9 @@ function Sessions(props) {
               ) : (
                 <SessionsAdd />
               )} */}
-                <Sessionslist data={subject} handleShow={onClick} />
+                {/* <Sessionslist data={subject} handleShow={onClick} /> */}
+
+                <SessionsAdd data={subject} />
               </Card>
             </>
           ) : null}

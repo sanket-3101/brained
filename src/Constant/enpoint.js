@@ -6,7 +6,7 @@ export const getChapterById = (id) => `${BASE_URL}chapter/${id}`;
 export const postChapter = `${BASE_URL}chapter`;
 export const putChapterById = (id) => `${BASE_URL}chapter/${id}`;
 export const deleteChapterById = (id) => `${BASE_URL}chapter/${id}`;
-
+export const getAllChapterById = (id) => `${BASE_URL}chapters?subject_id=${id}`;
 //device
 export const getDevice = `${BASE_URL}devices`;
 export const getDeviceById = (id) => `${BASE_URL}device/${id}`;
