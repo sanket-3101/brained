@@ -83,7 +83,7 @@
 // }
 // export default Dashboard;
 import { Button } from "bootstrap";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Container, Navbar } from "react-bootstrap";
 import { useNavigate, useLocation } from "react-router-dom";
 // import dashboard from '../assets/dashboard.png'
@@ -97,6 +97,17 @@ export default function Dashboard(props) {
   let navigate = useNavigate();
   const handleNavigation = (navigateTo) => {
     navigate(navigateTo);
+  };
+
+  const [userDetails, setUserDetails] = useState(null);
+
+  useEffect(() => {
+    getDetails();
+  }, []);
+
+  const getDetails = async () => {
+    const data = await localStorage.getItem("userDetails");
+    setUserDetails(JSON.parse(data));
   };
   const getList = (name, img, num, routes, image) => (
     <>
@@ -152,7 +163,9 @@ export default function Dashboard(props) {
           }}
         >
           {/* <img src={checkfit} style={{height: '20px', marginRight: '20px'}} /> */}
-          <div>Shyam Parmar</div>
+          <div>
+            {userDetails?.first_name} {userDetails?.last_name}
+          </div>
         </div>
         <div
           style={{
@@ -183,7 +196,7 @@ export default function Dashboard(props) {
             fontSize: "1.3rem",
           }}
         >
-          Mr Shyam Parmar
+          {userDetails?.first_name} {userDetails?.last_name}
         </div>
         {getList("Dashboard", "", 1, "/dashboardpage", "fas fa-home")}
         {getList("Sessions", "", 2, "/sessions", "fas fa-hourglass-start")}

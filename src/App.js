@@ -34,7 +34,7 @@ function AppRoutes() {
 
     if (details) {
       const new_details = JSON.parse(details);
-      axios.defaults.headers.common.id = new_details.id;
+      axios.defaults.headers.common.profileId = new_details.id;
     } else {
       navigate("/user");
     }

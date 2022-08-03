@@ -8,7 +8,7 @@ import { BASE_URL } from "../../Constant";
 function User() {
   let navigate = useNavigate();
   const [details, setDetails] = useState([]);
-  const [sst_no, setSSTNO] = useState("");
+  // const [sst_no, setSSTNO] = useState("");
   const [id, setId] = useState("");
   useEffect(() => {
     getInitial();
@@ -23,10 +23,10 @@ function User() {
       .catch((err) => console.log(err));
   };
   const handleContinue = async () => {
-    if (sst_no != "" && id != "") {
+    if (id != "") {
       const object = details.filter((item) => item.id == id)[0];
       await localStorage.setItem("userDetails", JSON.stringify(object));
-      axios.defaults.headers.common.id = object.id;
+      axios.defaults.headers.common.profileId = object.id;
       navigate("/dashboardpage");
     }
   };
@@ -57,7 +57,7 @@ function User() {
           <div>
             <h1 style={{ color: "white" }}>User's List</h1>
             <div style={{ display: "flex", alignItems: "center" }}>
-              <div className="w-50 mt-10 mr-2">
+              {/* <div className="w-50 mt-10 mr-2">
                 <Form.Select
                   onChange={(e) => setSSTNO(e.target.value)}
                   value={sst_no}
@@ -68,7 +68,7 @@ function User() {
                     <option value={item.id}>{item.id}</option>
                   ))}
                 </Form.Select>
-              </div>
+              </div> */}
               <div className="w-50 mt-10">
                 <Form.Select
                   onChange={(e) => setId(e.target.value)}
