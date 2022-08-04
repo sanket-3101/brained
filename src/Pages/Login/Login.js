@@ -78,6 +78,14 @@ function Login(props) {
                 >
                   Save
                 </button>
+                <button
+                  class="btn btn-primary btn-lg btn-block"
+                  type="submit"
+                  onClick={() => navigate('/user')}
+                  style={{marginTop: '5%'}}
+                >
+                  Back
+                </button>
               </div>
             </div>
           </div>

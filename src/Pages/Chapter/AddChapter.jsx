@@ -14,7 +14,7 @@ function AddChapter({
     <div className="addContainer">
       <div className="addSubContainer">
         <div className="addTitleContainer">
-          <h1>{isEdit ? "Edit Chapter" : "Add Chapter"}</h1>
+          <h3>{isEdit ? "Edit Chapter" : "Add Chapter"}</h3>
         </div>
         <div style={{ display: "flex" }}>
           <div className="w-50 mt-10 mr-5">

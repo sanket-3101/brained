@@ -5,7 +5,7 @@ function AddSubject({ handleSubjectChange, value, handleSave, isEdit, handleCanc
     <div className="addContainer">
       <div className="addSubContainer">
         <div className="addTitleContainer">
-          <h1>{isEdit ? "Edit Subject" : "Add Subject"}</h1>
+          <h3>{isEdit ? "Edit Subject" : "Add Subject"}</h3>
         </div>
         <InputGroup style={{ width: "50%" }}>
           <FormControl
